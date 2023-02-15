@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "location",
+  "info": {
+    "singularName": "location",
+    "pluralName": "locations",
+    "displayName": "location"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "country": {
+      "type": "text"
+    },
+    "description": {
+      "type": "json",
+      "pargraphs": [
+        {
+          "type": "text"
+        }
+      ]
+    },
+    "address": {
+      "type": "media"
+    },
+    "phone": {
+      "type": "text"
+    },
+    "email": {
+      "type": "email"
+    },
+    "image": {
+      "type": "media"
+    }
+  }
+}

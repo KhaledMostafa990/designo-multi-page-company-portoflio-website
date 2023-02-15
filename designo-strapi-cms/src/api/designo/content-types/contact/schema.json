@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contact",
+  "info": {
+    "singularName": "contact",
+    "pluralName": "contacts",
+    "displayName": "contact",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "headline": {
+      "type": "text"
+    },
+    "description": {
+      "type": "json",
+      "pargraphs": [
+        {
+          "type": "text"
+        }
+      ]
+    },
+    "locations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::designo.location"
+    }
+  }
+}

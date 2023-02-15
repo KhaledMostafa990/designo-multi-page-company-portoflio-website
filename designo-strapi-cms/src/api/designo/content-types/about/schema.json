@@ -1,0 +1,72 @@
+{
+  "kind": "collectionType",
+  "collectionName": "about",
+  "info": {
+    "singularName": "about",
+    "pluralName": "abouts",
+    "displayName": "about"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "headline": {
+      "type": "text"
+    },
+
+    "description": {
+      "type": "json",
+      "pargraphs": {
+        "type": "text"
+      }
+    },
+
+    "heroImages": {
+      "type": "json",
+      "images": {
+        "type": "media"
+      }
+    },
+
+    "ourTalent": {
+      "type": "json",
+      "default": {
+        "headline": "",
+        "description": {
+          "type": "json",
+          "pargraphs": [
+            {
+              "type": "text"
+            }
+          ]
+        },
+        "images": [
+          {
+            "type": "media"
+          }
+        ]
+      }
+    },
+
+    "ourDeal": {
+      "type": "json",
+      "default": {
+        "headline": "",
+        "description": {
+          "type": "json",
+          "pargraphs": [
+            {
+              "type": "text"
+            }
+          ]
+        },
+        "images": [
+          {
+            "type": "media"
+          }
+        ]
+      }
+    }
+  }
+}

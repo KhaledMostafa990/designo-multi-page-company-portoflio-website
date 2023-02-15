@@ -1,0 +1,81 @@
+{
+  "kind": "collectionType",
+  "collectionName": "designos",
+  "info": {
+    "singularName": "designo",
+    "pluralName": "designos",
+    "displayName": "designo",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "headline": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "primaryCta": {
+      "type": "string"
+    },
+    "values": {
+      "type": "json",
+      "items": [
+        {
+          "headline": {
+            "type": "text"
+          }
+        },
+        {
+          "description": {
+            "type": "json",
+            "pargraphs": [
+              {
+                "type": "text"
+              }
+            ]
+          }
+        },
+        {
+          "image": {
+            "type": "media"
+          }
+        }
+      ]
+    },
+    "orderProject": {
+      "type": "json",
+      "default": {
+        "headline": {
+          "type": "text"
+        },
+        "description": {
+          "type": "json",
+          "pargraphs": [
+            {
+              "type": "text"
+            }
+          ]
+        }
+      }
+    },
+    "about": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::designo.about"
+    },
+    "contact": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::designo.contact"
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::designo.project"
+    }
+  }
+}
