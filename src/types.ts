@@ -3,17 +3,19 @@ export interface MainInfo {
   headline: string;
   description: string;
   ctaText: string;
-  projects: Projects;
-  values: {
-    headline: string;
-    description: string;
-  }[];
   orderProject: {
     headline: string;
     description: string;
   };
+  values: Value[];
+  projects: Projects;
   contact: Contact;
-  aboutUs: AboutUs;
+}
+
+// Values data
+export interface Value {
+  headline: string;
+  description: string;
 }
 
 // Projects info

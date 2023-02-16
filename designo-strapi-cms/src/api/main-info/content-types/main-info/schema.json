@@ -1,0 +1,43 @@
+{
+  "kind": "singleType",
+  "collectionName": "main_infos",
+  "info": {
+    "singularName": "main-info",
+    "pluralName": "main-infos",
+    "displayName": "mainInfo",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "headline": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "primaryCta": {
+      "type": "string"
+    },
+    "values": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::value.value"
+    },
+    "orderProject": {
+      "type": "json"
+    },
+    "projectsIntro": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project-page.project-page"
+    },
+    "contactInfo": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::contact-info.contact-info"
+    }
+  }
+}
