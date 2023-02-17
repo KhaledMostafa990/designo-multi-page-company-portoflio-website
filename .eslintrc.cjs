@@ -9,7 +9,9 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
   rules: {
-    'no-underscore-dangle': 0,
-    'import/prefer-default-export': 0,
+    'no-underscore-dangle': false,
+    'import/prefer-default-export': false,
+    '@typescript-eslint/no-use-before-define': false,
+    'no-param-reassign': false,
   },
 };

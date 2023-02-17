@@ -1,3 +1,59 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.container {
+  @apply grid grid-cols-12;
+  max-width: 100vw;
+}
+
+.custom-hamburger-menu {
+  @apply relative flex-col transition-transform duration-300;
+  & > * {
+    @apply transition-transform duration-300;
+    transition-timing-function: ease-in-out;
+  }
+  // Active
+  &.active {
+    justify-content: center;
+    & > * {
+      position: absolute;
+      &:nth-child(2) {
+        opacity: 0;
+      }
+    }
+    & > * {
+      &:nth-child(1) {
+        transform: rotate(45deg);
+      }
+      &:nth-child(3) {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  // Active and Hovered
+  &.active:hover {
+    justify-content: center;
+    & > * {
+      &:nth-child(1) {
+        transform: rotate(60deg);
+      }
+      &:nth-child(3) {
+        transform: rotate(-60deg);
+      }
+    }
+  }
+  // Not Active And hovered
+  &:not(.active):hover {
+    > * {
+      &:nth-child(1) {
+        transform: rotate(10deg);
+      }
+      &:nth-child(3) {
+        transform: rotate(-10deg);
+      }
+    }
+  }
+}
