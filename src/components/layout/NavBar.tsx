@@ -27,13 +27,11 @@ export const NavBar = ({
             return (
               <li
                 key={index}
-                className={` md:py-0 md:border-none mx-3`}
+                className={` md:py-0 md:border-none md:mx-5`}
               >
                 <a
                   href={`#${item}`}
-                  className="capitalize block py-4 text-start text-white text-xl hover:underline
-                            transition-all duration-200 border-b-4 border-transparent                                
-                            md:py-0 md:text-xs md:text-dark-gray"
+                  className="uppercase block py-4 text-start text-white text-xl hover:underline transition-all duration-200 border-b-4 border-transparent md:py-0 md:text-xs md:text-dark-gray"
                 >
                   {item}
                 </a>

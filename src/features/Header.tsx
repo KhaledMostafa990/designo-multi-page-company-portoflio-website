@@ -56,9 +56,10 @@ export default function Header({
       <div
         ref={headerRef}
         className="container fixed bg-background-default
-          shadow-sm transition-all duration-[0.84s] z-20"
+          shadow-sm transition-all duration-[0.84s] z-20
+          xl:left-[50%] xl:translate-x-[-50%]"
       >
-        <div className="col-start-2 col-span-10 3xl:col-start-3 3xl:col-span-8 py-8 flex justify-between items-center transition-all duration-[0.84s]">
+        <div className="col-start-2 col-span-10 xl:col-start-0 xl:col-span-12 py-12 flex justify-between items-center transition-all duration-[0.84s]">
           <Logo logoSrc={logoSrc} />
           <NavBar
             navRef={navRef}

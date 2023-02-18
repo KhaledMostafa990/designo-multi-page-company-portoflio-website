@@ -1,8 +1,8 @@
 import './globals.scss';
 import { Jost } from '@next/font/google';
 
-import Header from '@/components/features/Header';
-import Footer from '@/components/features/Footer';
+import Header from '@/features/Header';
+import Footer from '@/features/Footer';
 
 const jostFont = Jost({ subsets: ["latin"], variable: '--font-family-jost' })
 
@@ -20,7 +20,7 @@ export default function RootLayout({
         <div className={`${jostFont.variable} font-primary`}>
           <Header data={{ navListItems, logoSrc }} />
 
-          <main>
+          <main className='relative translate-y-32 overflow-hidden'>
             {children}
           </main>
 
