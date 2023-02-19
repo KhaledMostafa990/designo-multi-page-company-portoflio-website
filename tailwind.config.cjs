@@ -12,25 +12,79 @@ module.exports = {
       '4xl': '1920px',
     },
     extend: {
-      fontFamily: {},
+      fontFamily: {
+        primary: ['var(--font-family-jost)'],
+      },
 
       fontSize: {
-        xs: [],
-        sm: [],
-        base: [],
-        xl: [],
-        '2xl': [],
+        xs: [
+          '14px',
+          {
+            lineHeight: '14px',
+            letterSpacing: '2px',
+          },
+        ],
+        sm: [
+          '15px',
+          {
+            lineHeight: '22px',
+            letterSpacing: '1px',
+          },
+        ],
+        base: [
+          '16px',
+          {
+            lineHeight: '25px',
+          },
+        ],
+        lg: [
+          '20px',
+
+          {
+            lineHeight: '25px',
+            letterSpacing: '2px',
+          },
+        ],
+        xl: [
+          '24px',
+
+          {
+            lineHeight: '25px',
+            letterSpacing: '2px',
+          },
+        ],
+        '2xl': [
+          '32px',
+          {
+            lineHeight: '36px',
+            fontWeight: '500',
+          },
+        ],
         '3xl': [],
-        '4xl': [],
+        '4xl': [
+          '48px',
+          {
+            lineHeight: '48px',
+            letterSpacing: '2px',
+          },
+        ],
         '5xl': [],
         '6xl': [],
       },
 
       colors: {
-        primary: {},
-        bodytext: {},
-        heading: {},
-        background: {},
+        primary: {
+          default: '#E7816B',
+        },
+        secondary: {
+          default: '#FFAD9B',
+        },
+        'light-gray': '#F2F2F2',
+        'dark-gray': '#333136',
+        background: {
+          default: '#FFFFFF',
+          black: '#1D1C1E',
+        },
       },
     },
   },
