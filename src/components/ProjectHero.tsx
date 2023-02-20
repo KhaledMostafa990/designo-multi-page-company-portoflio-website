@@ -29,7 +29,7 @@ export function ProjectHero({ item }: { item: any }) {
         <source media="(min-width: 1024px)" srcSet={item.imageTab} />
         <Image
           className={`rounded-2xl w-full max-w-full max-h-[250px]
-          xl:max-h-full xl:min-w-[541px]`}
+          xl:min-h-full xl:min-w-[541px]`}
           src={item.imageMob}
           alt={item.imageAlt}
           width={541}

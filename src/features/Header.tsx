@@ -50,7 +50,7 @@ export default function Header({
     }
   }, [isDesktop, navListItems, toggleMenu]);
   return (
-    <header>
+    <header className='z-20 xl:fixed xl:w-full xl:h-[124px] xl:bg-background-default'>
       <Overlay overlayRef={overlayRef} />
 
       <div
