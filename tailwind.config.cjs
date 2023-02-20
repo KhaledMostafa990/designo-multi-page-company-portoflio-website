@@ -54,21 +54,33 @@ module.exports = {
           },
         ],
         '2xl': [
+          '28px',
+          {
+            lineHeight: '36px',
+            fontWeight: '500',
+          },
+        ],
+        '3xl': [
           '32px',
           {
             lineHeight: '36px',
             fontWeight: '500',
           },
         ],
-        '3xl': [],
         '4xl': [
+          '40px',
+          {
+            lineHeight: '48px',
+            letterSpacing: '2px',
+          },
+        ],
+        '5xl': [
           '48px',
           {
             lineHeight: '48px',
             letterSpacing: '2px',
           },
         ],
-        '5xl': [],
         '6xl': [],
       },
 
