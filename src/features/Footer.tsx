@@ -53,8 +53,8 @@ export default function Footer({ data, classes }: { data: FooterData, classes: s
                 alt="A beautiful background circle" />
             </picture>
 
-            <div className="relative z-20 text-white flex flex-col gap-6  items-center  py-16 px-2 xl:flex-row xl:justify-between xl:gap-10 xl:px-24">
-              <div className="flex flex-col gap-6 xl:gap-10 ">
+            <div className="relative z-20 text-white flex flex-col gap-6 items-center  py-16 px-2 xl:flex-row xl:justify-between xl:gap-10 xl:px-24">
+              <div className="flex flex-col items-center  gap-6 xl:gap-10 xl:items-start ">
                 <h3 className="text-3xl max-w-[250px] text-center xl:max-w-sm xl:text-4xl xl:text-start">
                   {orderProject.heading}
                 </h3>

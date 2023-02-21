@@ -61,12 +61,12 @@ export default function Hero(data: HeroProps) {
           {/* Hero Content */}
           <div className='text-white flex flex-col justify-center px-4 pt-14 items-center gap-6 text-center z-10 xl:pl-24 xl:text-start xl:items-start'
           >
-            <h1 className='text-2xl max-w-sm md:text-4xl md:max-w-xl'>
+            <h1 className='text-3xl max-w-sm md:max-w-xl xl:text-5xl'>
               {heroHeading}
             </h1>
 
             <p
-              className='  max-w-sm'>
+              className='max-w-sm'>
               {heroDescription}
             </p>
 
