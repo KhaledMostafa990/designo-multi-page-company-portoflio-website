@@ -91,8 +91,8 @@ module.exports = {
         secondary: {
           default: '#FFAD9B',
         },
-        'light-gray': '#F2F2F2',
-        'dark-gray': '#333136',
+        'light-grey': '#F2F2F2',
+        'dark-grey': '#333136',
         background: {
           default: '#FFFFFF',
           black: '#1D1C1E',
