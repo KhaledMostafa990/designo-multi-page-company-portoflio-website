@@ -20,11 +20,11 @@ export default function RootLayout({
         <div className={`${jostFont.variable} font-primary`}>
           <Header data={{ navListItems, logoSrc }} />
 
-          <main className='relative overflow-hidden translate-y-32 pb-10 xl:pb-16 flex flex-col gap-20 xl:gap-32 '>
+          <main className='relative overflow-hidden translate-y-24 xl:translate-y-40 pb-10 xl:pb-16 flex flex-col gap-20 xl:gap-32 '>
             {children}
           </main>
 
-          <Footer classes={'relative overflow-hidden translate-y-32 pt-60'} data={footerData} />
+          <Footer classes={'relative overflow-hidden translate-y-24 xl:translate-y-40 pt-60'} data={footerData} />
         </div>
       </body>
     </html>

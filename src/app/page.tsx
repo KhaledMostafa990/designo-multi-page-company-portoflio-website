@@ -1,6 +1,8 @@
 import { Projects } from './../features/Projects';
 import Hero from "@/features/Hero";
 import Values from "@/features/Values";
+import heroBgImageDisk from '/public/assets/home/desktop/bg-pattern-hero-home.svg';
+import heroImage from '/public/assets/home/desktop/image-hero-phone.png';
 
 export default function Home() {
   return (
@@ -18,8 +20,8 @@ const heroData = {
   heroHeading: 'Award-winning custom designs and digital branding solutions',
   heroDescription: 'With over 10 years in the industry, we are experienced in creating fully responsive websites, app design, and engaging brand experiences. Find out more about our services.',
   heroBtnText: 'Learn More',
-  heroBgImageDisk: '/assets/home/desktop/bg-pattern-hero-home.svg',
-  heroImage: '/assets/home/desktop/image-hero-phone.png',
+  heroBgImageDisk,
+  heroImage,
 };
 
 // Project Hero Mock data example

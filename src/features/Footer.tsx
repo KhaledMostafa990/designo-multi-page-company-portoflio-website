@@ -13,7 +13,7 @@ interface FooterData {
     bgPatternImageSmall: string;
     bgPatternImageLarge: string;
   },
-  logoSrc: string,
+  logoSrc: any,
   navListItems: string[],
   mainLocation: {
     country: string;
@@ -50,6 +50,7 @@ export default function Footer({ data, classes }: { data: FooterData, classes: s
                 src={orderProject.bgPatternImageSmall}
                 width={876}
                 height={584}
+                priority
                 alt="A beautiful background circle" />
             </picture>
 
@@ -117,7 +118,7 @@ export default function Footer({ data, classes }: { data: FooterData, classes: s
                   {socialMediaIcons.map((icon, index) => (
                     <li key={index}>
                       <Link href={icon.link}>
-                        <Image src={icon.iconSrc} width={24} height={24} alt={icon.altText} />
+                        <Image src={icon.iconSrc} width={24} height={24} alt={icon.altText} priority />
                       </Link>
                     </li>
                   ))}

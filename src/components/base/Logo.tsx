@@ -14,11 +14,10 @@ export function Logo({
     <>
       <figure className={`flex items-center ${wrapperClasses}`}>
         <Image
-          className={`object-cover ${className}`}
+          className={`object-cover max-w-[202px] max-h-[27px] ${className}`}
           src={logoSrc}
           alt={'logo img'}
-          width={139}
-          height={20}
+          priority
         />
       </figure>
     </>

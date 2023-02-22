@@ -12,7 +12,7 @@ import { NavBar } from '@/components/layout';
 export default function Header({
   data,
 }: {
-  data: { navListItems: string[]; logoSrc: string };
+  data: { navListItems: string[]; logoSrc: any };
 }) {
   const { navListItems, logoSrc } = data;
 
@@ -50,7 +50,7 @@ export default function Header({
     }
   }, [isDesktop, navListItems, toggleMenu]);
   return (
-    <header className='z-20 xl:fixed xl:w-full xl:h-[124px] xl:bg-background-default'>
+    <header className='z-20 xl:fixed xl:w-full xl:h-[155px] xl:bg-background-default'>
       <Overlay overlayRef={overlayRef} />
 
       <div
@@ -59,7 +59,7 @@ export default function Header({
           shadow-sm transition-all duration-[0.84s] z-20
           xl:left-[50%] xl:translate-x-[-50%]"
       >
-        <div className="col-start-2 col-span-10 xl:col-start-0 xl:col-span-12 py-12 flex justify-between items-center transition-all duration-[0.84s]">
+        <div className="col-start-2 col-span-10 xl:col-start-0 xl:col-span-12 py-8 flex justify-between items-center transition-all duration-[0.84s] xl:py-16">
           <Logo logoSrc={logoSrc} />
           <NavBar
             navRef={navRef}

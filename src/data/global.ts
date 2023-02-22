@@ -1,6 +1,9 @@
 export const navListItems = ['Our Company', 'locations', 'Contact'];
-export const logoSrc = '/assets/shared/desktop/logo-dark.png';
-export const logoSrcLight = '/assets/shared/desktop/logo-light.png';
+import logoSrcDark from  '/public/assets/shared/desktop/logo-dark.png';
+import logoSrcLight from  '/public/assets/shared/desktop/logo-light.png';
+import bgPatternImageSmall from  '/public/assets/shared/desktop/bg-pattern-three-circles.svg';
+import bgPatternImageLarge from  '/public/assets/shared/desktop/bg-pattern-call-to-action.svg';
+export const logoSrc = logoSrcDark;
 
 export const ourLocations = [
   {
@@ -32,8 +35,8 @@ export const footerData = {
     heading:'Let’s talk about your project',
     description:'Ready to take it to the next level? Contact us today and find out how our expertise can help your business grow.',
     buttonLabel:'Get in touch',
-    bgPatternImageSmall: 'assets/shared/desktop/bg-pattern-three-circles.svg',
-    bgPatternImageLarge: 'assets/shared/desktop/bg-pattern-call-to-action.svg',
+    bgPatternImageSmall,
+    bgPatternImageLarge,
   },
   logoSrc:logoSrcLight,
   navListItems,
