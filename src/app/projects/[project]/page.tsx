@@ -1,3 +1,9 @@
-export default function Projects() {
-  return <h1>Project</h1>;
+export default function Projects({ params }: { params: any }) {
+
+  return (
+    <>
+      <h1>{params.project}</h1>
+
+    </>
+  );
 }

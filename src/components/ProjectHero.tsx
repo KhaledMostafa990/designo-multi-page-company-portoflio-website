@@ -14,7 +14,7 @@ export function ProjectHero({ item }: { item: any }) {
         bg-black/70 hover:bg-primary-default/70"
       >
         <h2 className="text-2xl text-white uppercase xl:text-4xl">{item.heading}</h2>
-        <Link href={`/project/${link}`}>
+        <Link href={`/projects/${link}`}>
           <button className="flex gap-3 justify-center items-center text-white uppercase tracking-widest text-center text-sm">View Project
             <i>
               <svg width="7" height="10" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4-4 4" stroke="#E7816B" stroke-width="2" fill="none" fill-rule="evenodd" />

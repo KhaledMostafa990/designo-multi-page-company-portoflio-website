@@ -8,6 +8,7 @@ import {
 } from '@/utils';
 import { HamburgerButton, Logo, Overlay } from '@/components/base';
 import { NavBar } from '@/components/layout';
+import Link from 'next/link';
 
 export default function Header({
   data,
@@ -60,7 +61,10 @@ export default function Header({
           xl:left-[50%] xl:translate-x-[-50%]"
       >
         <div className="col-start-2 col-span-10 xl:col-start-0 xl:col-span-12 py-8 flex justify-between items-center transition-all duration-[0.84s] xl:py-16">
-          <Logo logoSrc={logoSrc} />
+          <Link href={'/'}>
+            <Logo logoSrc={logoSrc} />
+          </Link>
+
           <NavBar
             navRef={navRef}
             navListRef={navList}

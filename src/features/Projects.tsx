@@ -22,9 +22,11 @@ export function Projects({ data }: { data: ProjectHeroProps[] }) {
           </div>
 
           <div className={`flex flex-col gap-5`}>
-            {data.slice(1).map((item, index) => <div key={index} className={`relative h-full xl:min-h-[308px]`}>
-              <ProjectHero item={item} />
-            </div>)}
+            {data.slice(1).map((item, index) => (
+              <div key={index} className={`relative h-full xl:min-h-[308px]`}>
+                <ProjectHero item={item} />
+              </div>
+            ))}
           </div>
 
         </div>
