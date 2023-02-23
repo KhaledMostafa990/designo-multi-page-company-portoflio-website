@@ -8,8 +8,8 @@ interface HeroProps {
     heroHeading: string,
     heroDescription: string,
     heroBtnText: string,
-    heroBgImageDisk: string,
-    heroImage: string
+    heroBgImageDisk: any,
+    heroImage: any
   }
 }
 
@@ -22,9 +22,9 @@ export default function Hero(data: HeroProps) {
       className='w-full'
     >
       <div className='container'>
-        <div className=" bg-primary-default col-start-0 col-span-12 w-full
+        <div className="h-[880px] bg-primary-default col-start-0 col-span-12 w-full
             relative overflow-hidden flex flex-col-reverse
-            md:col-start-2 md:col-span-10 md:rounded-2xl  xl:flex-row-reverse xl:h-[640px] xl:col-start-0 xl:col-span-12">
+            md:col-start-2 md:col-span-10 md:rounded-2xl xl:flex-row-reverse xl:h-[640px] xl:col-start-0 xl:col-span-12">
 
           {/* background image */}
           <figure
@@ -32,41 +32,38 @@ export default function Hero(data: HeroProps) {
           md:top-[12%] md:left-[22%] xl:top-0 xl:left-[44%]"
           >
             <Image
-              className=" min-w-[640px] min-h-[640px]"
+              className="w-[640px] h-[640px] min-w-[640px] min-h-[640px] max-w-[640px] max-h-[640px]"
               src={heroBgImageDisk}
-              width={640}
-              height={639}
               priority
-              alt="A beautiful background circle" />
+              alt="A beautiful background circle"
+            />
           </figure>
 
           {/*hero image*/}
           <figure
-            className='overflow-hidden relative w-full min-h-[45vh] md:min-h-[50vh]
+            className='overflow-hidden relative w-full min-h-[450px]
             xl:flex-1'
           >
             <Image
               className='min-w-[550px] max-w-[550px] min-h-fit max-h-[913px]
               absolute top-[-15%] left-[50%] translate-y-[0%] translate-x-[-50%]
-              md:max-w-full md:top-[-20%] xl:top-[5%]'
+              md:max-w-full md:top-[-20%] xl:top-[2%]'
               src={heroImage}
-              width={624}
-              height={913}
-              priority
+              loading='lazy'
               alt="A Phone-like Hero Image"
             />
 
           </figure>
 
           {/* Hero Content */}
-          <div className='text-white flex flex-col justify-center px-4 pt-14 items-center gap-6 text-center z-10 xl:pl-24 xl:text-start xl:items-start'
+          <div className='text-white flex flex-col justify-center px-4 pt-14 items-center gap-6 text-center z-10 xl:pl-24 xl:pt-40 xl:text-start xl:items-start xl:justify-start'
           >
-            <h1 className='text-2xl max-w-sm md:text-4xl md:max-w-xl'>
+            <h1 className='text-3xl max-w-sm md:max-w-xl md:text-5xl'>
               {heroHeading}
             </h1>
 
             <p
-              className='  max-w-sm'>
+              className='max-w-md'>
               {heroDescription}
             </p>
 

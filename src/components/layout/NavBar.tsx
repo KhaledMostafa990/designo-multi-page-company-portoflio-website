@@ -31,7 +31,7 @@ export const NavBar = ({
               >
                 <a
                   href={`#${item}`}
-                  className="uppercase block py-4 text-start text-white text-xl hover:underline transition-all duration-200 border-b-4 border-transparent md:py-0 md:text-xs md:text-dark-gray"
+                  className="uppercase block py-4 text-start text-white text-xl hover:underline transition-all duration-200 border-b-4 border-transparent md:py-0 md:text-xs md:text-dark-grey"
                 >
                   {item}
                 </a>
