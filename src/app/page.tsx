@@ -3,17 +3,18 @@ import Hero from "@/features/Hero";
 import Values from "@/features/Values";
 import heroBgImageDisk from '/public/assets/home/desktop/bg-pattern-hero-home.svg';
 import heroImage from '/public/assets/home/desktop/image-hero-phone.png';
+import { projectsData } from '@/data/global';
 
 export default function Home() {
+
   return (
     <>
       <Hero data={heroData} />
-      <Projects data={ProjectHeroData} />
+      <Projects data={projectsData} />
       <Values data={ValuesData} />
     </>
   );
 }
-
 
 // Hero Mock data example 
 const heroData = {
@@ -24,32 +25,6 @@ const heroData = {
   heroImage,
 };
 
-// Project Hero Mock data example
-
-const ProjectHeroData = [
-  {
-    heading: 'Web Design',
-    imageMob: '/assets/home/mobile/image-web-design.jpg',
-    imageTab: '/assets/home/tablet/image-web-design.jpg',
-    imageDesk: '/assets/home/desktop/image-web-design-large.jpg',
-    imageDeskSmall: '/assets/home/desktop/image-web-design-small.jpg',
-    imageAlt: 'Web Design',
-  },
-  {
-    heading: 'App Design',
-    imageMob: '/assets/home/mobile/image-app-design.jpg',
-    imageTab: '/assets/home/tablet/image-app-design.jpg',
-    imageDesk: '/assets/home/desktop/image-app-design.jpg',
-    imageAlt: 'App Design',
-  },
-  {
-    heading: 'Graphic Design',
-    imageMob: '/assets/home/mobile/image-graphic-design.jpg',
-    imageTab: '/assets/home/tablet/image-graphic-design.jpg',
-    imageDesk: '/assets/home/desktop/image-graphic-design.jpg',
-    imageAlt: 'Graphic Design',
-  },
-]
 
 // Values Mock data example 
 const ValuesData = [

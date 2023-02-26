@@ -2,9 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-export function ProjectHero({ item }: { item: any }) {
-  // remove spaces from  heading to be used as link
-  const link = item.heading.replace(/\s+/g, "-").toLowerCase();
+export function ProjectHero({ item, projectPage }: { item: any, projectPage?: boolean }) {
+  const link = item.id;
+  const imageDesk = projectPage ? item.imageDeskSmall : item.imageDesk;
 
   return (
     <>
@@ -25,13 +25,13 @@ export function ProjectHero({ item }: { item: any }) {
       </div>
 
       <picture className="">
-        <source media="(min-width: 1280px)" srcSet={item.imageDesk} />
+        <source media="(min-width: 1280px)" srcSet={imageDesk} />
         <source media="(min-width: 768px)" srcSet={item.imageTab} />
         <Image
           className={`rounded-2xl w-full h-auto max-w-full 
-          xl:min-h-auto xl:max-h-[640px] xl:w-[541px] xl:min-w-[541px] xl:max-w-[541px]`}
+          xl:min-h-[308px] xl:max-h-[640px] xl:w-[541px] xl:min-w-[541px] xl:max-w-[541px]`}
           src={item.imageMob}
-          alt={item.imageAlt}
+          alt={item.heading}
           height={308}
           width={541}
           loading="lazy"
