@@ -16,15 +16,15 @@ export const NavBar = ({
       <nav
         ref={navRef}
         className="h-fit w-full
-                absolute top-[50%] left-[0%] translate-y-[-150%]
-                [&.active]:translate-y-[19%] translate-x-[-0%]
-                transition-all duration-500 [&.active]:block
-                [&.active]:bg-background-black md:min-w-fit
-                md:static md:h-fit md:w-fit md:translate-x-0 md:translate-y-0"
+        absolute top-[50%] left-[0%] translate-y-[-150%]
+        [&.active]:translate-y-[19%] translate-x-[-0%]
+        transition-all duration-500 [&.active]:block
+        [&.active]:bg-background-black md:min-w-fit
+        md:static md:h-fit md:w-fit md:translate-x-0 md:translate-y-0"
       >
         <ul ref={navListRef} className="flex flex-col px-6 py-8 md:p-0 md:flex-row">
           {navListItems.map((item, index) => {
-            const itemLink = item.toLowerCase().replace(' ', '-') === 'our-company' ? '/about' : `/${item}`;
+            const itemLink = item === 'Our Company' ? '/about' : `/${item.toLowerCase().replace(' ', '-')}`;
             return (
               <li
                 key={index}

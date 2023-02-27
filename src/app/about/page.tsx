@@ -1,11 +1,10 @@
+import { LocationItem } from './../../components/LocationItem';
 import React from 'react';
 import { aboutData, ourLocations } from '@/data/global';
 import { Section } from '@/components/layout';
 import Image from 'next/image';
 import bgCirlceSmall from '/public/assets/shared/desktop/bg-pattern-small-circle.svg';
 import bgPatternImageLarge from '/public/assets/home/desktop/bg-pattern-hero-home.svg';
-import { PrimaryButton } from '@/components/base';
-import Link from 'next/link';
 
 export default function About() {
   const { heading, description, imageMob, imageTab, imageDesk, ourTalent, ourDeal } = aboutData;
@@ -130,34 +129,7 @@ export default function About() {
             xl:col-start-0 xl:col-span-12 xl:flex-row xl:gap-36 xl:justify-center"
           >
             {ourLocations.map((location, index) => (
-              <div
-                key={index}
-                className="flex flex-col items-center gap-10"
-              >
-                <figure className="relative rounded-full bg-gradient-to-tr from-light-grey to-white">
-                  <Image
-                    className="min-w-[202px] min-h-[202px]"
-                    src={location.image}
-                    width={202}
-                    height={202}
-                    alt={location.country}
-                    priority
-                  />
-                </figure>
-
-                <div
-                  className="flex flex-col items-center gap-6
-                  xl:gap-10"
-                >
-                  <h3 className='text-black text-lg uppercase'>
-                    {location.country}
-                  </h3>
-
-                  <Link href={`/locations`}>
-                    <PrimaryButton onLight> see Location</PrimaryButton>
-                  </Link>
-                </div>
-              </div>
+              <LocationItem key={location.country} location={location} />
             ))}
           </div>
         </div>

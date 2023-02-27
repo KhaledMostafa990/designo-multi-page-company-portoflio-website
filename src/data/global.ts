@@ -6,6 +6,12 @@ import australiaImage from '/public/assets/shared/desktop/illustration-australia
 import canadaImage from '/public/assets/shared/desktop/illustration-canada.svg';
 import ukImage from '/public/assets/shared/desktop/illustration-united-kingdom.svg';
 
+import canadaMapImageTab from '/public/assets/locations/tablet/image-map-canada.png';
+import australiaMapImageTab from '/public/assets/locations/tablet/image-map-australia.png';
+import ukMapImageTab from '/public/assets/locations/tablet/image-map-uk.png';
+import canadaMapImageDesk from '/public/assets/locations/desktop/image-map-canada.png';
+import australiaMapImageDesk from '/public/assets/locations/desktop/image-map-australia.png';
+import ukMapImageDesk from '/public/assets/locations/desktop/image-map-united-kingdom.png';
 
 export const navListItems = ['Our Company', 'locations', 'Contact'];
 export const logoSrc = logoSrcDark;
@@ -16,8 +22,10 @@ export const ourLocations = [
     officeName: 'Designo Central Office',
     fullAddress: '3886 Wellington Street Toronto, Ontario M9C 3J5',
     phone: 'P : +1 253-863-8967',
-    email: 'M : contact@designo.co',
+    email: 'M : contact@designo.co',    
     image: canadaImage,
+    mapImageTab: canadaMapImageTab,
+    mapImageDesk: canadaMapImageDesk,
   },
   {
     country: 'Australia',
@@ -26,6 +34,8 @@ export const ourLocations = [
     phone: 'P : (02) 6720 9092',
     email: 'M : contact@designo.au',
     image: australiaImage,
+    mapImageTab: australiaMapImageTab,
+    mapImageDesk: australiaMapImageDesk,
   },
   {    
     country: 'United Kingdom',
@@ -34,6 +44,8 @@ export const ourLocations = [
     phone: 'P : 078 3115 1400',
     email: 'M : contact@designo.au',
     image: ukImage,
+    mapImageTab: ukMapImageTab,
+    mapImageDesk: ukMapImageDesk,     
   },
 ]
 
@@ -239,3 +251,19 @@ export const aboutData = {
     imageDesk: '/assets/about/desktop/image-real-deal.jpg',
   },
   }
+
+// Contact Mock data example
+
+export const contactData = {
+  heading: 'Contact Us',
+  description: 'Ready to take it to the next level? Let’s talk about your project or idea and find out how we can help your business grow. If you are looking for unique digital experiences that’s relatable to your users, drop us a line.',
+  formInput:{
+    name: 'Name',
+    email: 'Email Address',
+    phone: 'Phone',
+    message: 'Message',
+    button: 'Submit',
+  },
+}
+
+  

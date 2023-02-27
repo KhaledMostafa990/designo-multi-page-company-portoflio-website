@@ -1,6 +1,6 @@
 // footer data props
 
-import { Logo, PrimaryButton } from "@/components/base";
+import { LocationInfo, Logo, PrimaryButton } from "@/components/base";
 import { Section } from "@/components/layout";
 import Image from "next/image";
 import Link from "next/link";
@@ -99,18 +99,7 @@ export default function Footer({ data, classes }: { data: FooterData, classes: s
                 className="flex flex-col items-center gap-8 lg:flex-1 md:gap-0 
                 md:flex-row md:justify-between"
               >
-                <div className="flex flex-col gap-2">
-                  <p className="text-dark-grey text-center md:text-start font-bold">{mainLocation.officeName}</p>
-                  <p className=" text-dark-grey text-center md:text-start max-w-[200px]">{mainLocation.fullAddress}</p>
-                </div>
-
-                <div className="flex flex-col gap-2">
-                  <p className="text-dark-grey text-center md:text-start font-bold">
-                    Contact Us {` (${mainLocation.officeName.slice(mainLocation.officeName.indexOf(' '))}) `}
-                  </p>
-                  <p className="text-dark-grey text-center md:text-start">{mainLocation.phone}</p>
-                  <p className="text-dark-grey text-center md:text-start max-w-[200px]">{mainLocation.email}</p>
-                </div>
+                <LocationInfo location={mainLocation} onFooter />
               </div>
 
               <div className="lg:flex-1 h-full flex justify-end items-end">
