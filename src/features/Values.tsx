@@ -22,7 +22,7 @@ export default function Values({ data }: { data: ValueProps[] }) {
                 className="relative text-black  flex flex-col items-center w-full h-auto gap-8 
                 md:flex-row xl:flex-col"
               >
-                <figure className="relative rounded-full bg-gradient-to-tr from-light-gray to-white">
+                <figure className="relative rounded-full bg-gradient-to-tr from-light-grey to-white">
                   <Image
                     className="min-w-[202px] min-h-[202px]"
                     src={value.imageDesk}
