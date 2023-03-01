@@ -5,7 +5,7 @@ import Image from "next/image";
 import bgCirlceSmall from '/public/assets/shared/desktop/bg-pattern-small-circle.svg';
 import bgPatternImageLarge from '/public/assets/home/desktop/bg-pattern-hero-home.svg';
 
-interface LocationData {
+export interface LocationData {
   country: string;
   officeName: string;
   fullAddress: string;
@@ -19,43 +19,52 @@ interface LocationData {
 
 export default function Locations() {
   return (
-    <>
+    <div className="flex flex-col gap-8">
       {ourLocations.map((location: LocationData, index) => (
-
-        <Section key={location.country} dataSection={`hero`} className='w-full'>
+        <Section
+          key={location.country}
+          dataSection={location.country}
+          id={location.country.toLowerCase().replace(' ', '-')}
+        >
           <div className='container'>
             <div
               className={`col-start-0 col-span-12 
-            w-full h-full overflow-hidden flex flex-col
-            md:col-start-2 md:col-span-10 md:rounded-2xl
-            xl:col-start-0 xl:col-span-12 xl:gap-10 ${index === 1 ? 'xl:flex-row' : 'xl:flex-row-reverse'}`}
+              w-full h-full overflow-hidden flex flex-col
+              md:col-start-2 md:col-span-10 md:rounded-2xl
+              xl:col-start-0 xl:col-span-12 xl:gap-8
+              ${index === 1 ? 'xl:flex-row' : 'xl:flex-row-reverse'}`}
             >
 
               {/* Map Image */}
-              <picture className="relative z-10 w-full h-fit xl:w-fit">
-                <source media="(min-width: 768px)" srcSet={location.mapImageTab} />
-                <source media="(min-width: 1440px)" srcSet={location.mapImageDesk} />
-
+              <picture className="relative z-10 w-full h-auto xl:max-w-fit">
                 <Image
-                  className=" min-w-full min-h-[320px] max-w-full max-h-full
-                  md:rounded-t-xl xl:rounded-xl xl:w-[350px] "
+                  className="w-full h-[326px] max-h-auto
+                  md:rounded-t-xl xl:rounded-xl xl:w-fit xl:max-w-[350px]"
                   src={location.mapImageTab}
                   priority
-                  width={320}
-                  height={320}
                   alt="A beautiful background circle"
                 />
               </picture>
 
               {/* Location Details */}
-              <div className="h-[385px] bg-primary-default/10 relative md:rounded-b-xl overflow-hidden xl:rounded-xl xl:flex-1 xl:h-auto">
+              <div
+                className="relative h-[385px] bg-primary-default/10
+                md:rounded-b-xl overflow-hidden xl:rounded-xl xl:flex-1 xl:h-auto"
+              >
                 {/* background image */}
-                <picture className="absolute top-[-20%] left-[0%] w-fit h-auto">
-                  <source media="(max-width: 767px)" srcSet={bgCirlceSmall} />
-                  <source media="(min-width: 768px)" srcSet={bgPatternImageLarge} />
-
+                <picture
+                  className="absolute top-[-20%] left-[0%] w-fit h-auto
+                  md:top-[10%] md:flex md:h-fit"
+                >
                   <Image
-                    className="min-w-[292px] min-h-[292px] max-w-full max-h-full" src={bgCirlceSmall}
+                    className="min-w-[292px] min-h-[292px]"
+                    src={bgCirlceSmall}
+                    priority
+                    alt="A beautiful background circle"
+                  />
+                  <Image
+                    className="hidden md:block min-w-[292px] min-h-[292px]"
+                    src={bgCirlceSmall}
                     priority
                     alt="A beautiful background circle"
                   />
@@ -73,7 +82,6 @@ export default function Locations() {
                     md:gap-12 md:flex-row"
                   >
                     <LocationInfo onFooter={false} location={location} />
-
                   </div>
                 </div>
               </div>
@@ -82,6 +90,6 @@ export default function Locations() {
           </div>
         </Section>
       ))}
-    </>
+    </div>
   );
 }

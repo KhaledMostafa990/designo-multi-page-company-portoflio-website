@@ -1,49 +1,64 @@
-import { Projects } from './../features/Projects';
+import { projectsData, heroData, valuesData } from '@/data/global';
+
+import { Section } from '@/components/layout';
+import Projects from '@/features/Projects';
 import Hero from "@/features/Hero";
 import Values from "@/features/Values";
-import heroBgImageDisk from '/public/assets/home/desktop/bg-pattern-hero-home.svg';
-import heroImage from '/public/assets/home/desktop/image-hero-phone.png';
-import { projectsData } from '@/data/global';
 
 export default function Home() {
 
   return (
     <>
-      <Hero data={heroData} />
-      <Projects data={projectsData} />
-      <Values data={ValuesData} />
+      <Section>
+        <div className='container'>
+          <div
+            className="h-[880px] bg-primary-default col-start-0 col-span-12 w-full
+            relative overflow-hidden flex flex-col-reverse
+            md:col-start-2 md:col-span-10 md:rounded-2xl
+            xl:flex-row-reverse xl:h-[640px] xl:col-start-0 xl:col-span-12"
+          >
+
+            <Hero data={heroData} />
+
+          </div>
+        </div>
+      </Section>
+
+      <Section>
+        <div className="container">
+          <div
+            className="col-start-2 col-span-10 xl:col-start-0 flex flex-col gap-5
+            xl:col-span-12 xl:flex-row"
+          >
+
+            <Projects data={projectsData} />
+
+          </div>
+        </div>
+      </Section>
+
+      <Section>
+        <div className="container">
+          <div
+            className="col-start-2 col-span-10 xl:col-start-0 flex flex-col gap-5
+            xl:col-span-12 xl:flex-row"
+          >
+            <div className="relative flex flex-col items-center w-full h-auto gap-10
+            xl:flex-row">
+
+              {valuesData.map((value) => (
+                <Values value={value} key={value.heading} />
+              ))}
+
+            </div>
+          </div>
+        </div>
+      </Section>
     </>
   );
 }
 
-// Hero Mock data example 
-const heroData = {
-  heroHeading: 'Award-winning custom designs and digital branding solutions',
-  heroDescription: 'With over 10 years in the industry, we are experienced in creating fully responsive websites, app design, and engaging brand experiences. Find out more about our services.',
-  heroBtnText: 'Learn More',
-  heroBgImageDisk,
-  heroImage,
-};
 
-
-// Values Mock data example 
-const ValuesData = [
-  {
-    heading: "Passionate",
-    description: "Each project starts with an in-depth brand research to ensure we only create products that serve a purpose. We merge art, design, and technology into exciting new solutions.",
-    imageDesk: "/assets/home/desktop/illustration-passionate.svg",
-  },
-  {
-    heading: "Resourceful",
-    description: "Everything that we do has a strategic purpose. We use an agile approach in all of our projects and value customer collaboration. It guarantees superior results that fulfill our clients’ needs.",
-    imageDesk: "/assets/home/desktop/illustration-resourceful.svg",
-  },
-  {
-    heading: "Friendly",
-    description: "We are a group of enthusiastic folks who know how to put people first. Our success depends on our customers, and we strive to give them the best experience a company can provide.",
-    imageDesk: "/assets/home/desktop/illustration-friendly.svg",
-  },
-]
 
 
 

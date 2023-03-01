@@ -1,5 +1,5 @@
 import { Section } from "@/components/layout";
-import { ProjectHero } from "@/components/ProjectHero";
+import { ProjectHero } from "@/features/ProjectsPage/ProjectHero";
 import { projectsData } from "@/data/global";
 
 export default function RootLayout({

@@ -9,7 +9,7 @@ export function ProjectCard({ project }: { project: any }) {
       md:flex-row xl:flex-col"
     >
       <figure className="w-full h-auto md:flex-1">
-        <Image className='rounded-t-xl w-full max-w-full h-auto min-h-[320px]'
+        <Image className='rounded-t-xl w-full max-w-full h-auto min-h-[320px] xl:max-w-[350px]'
           src={project.image}
           alt={project.imageAlt}
           priority

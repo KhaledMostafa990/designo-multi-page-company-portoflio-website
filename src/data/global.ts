@@ -1,7 +1,14 @@
 import logoSrcDark from  '/public/assets/shared/desktop/logo-dark.png';
 import logoSrcLight from  '/public/assets/shared/desktop/logo-light.png';
-import bgPatternImageSmall from  '/public/assets/shared/desktop/bg-pattern-three-circles.svg';
+
+import heroBgImageDisk from '/public/assets/home/desktop/bg-pattern-hero-home.svg';
+import heroImage from '/public/assets/home/desktop/image-hero-phone.png';
+
+import bgPatternThreeCircle from  '/public/assets/shared/desktop/bg-pattern-three-circles.svg';
+import bgPatternImageSmall from  '/public/assets/shared/desktop/bg-pattern-small-circle.svg';
 import bgPatternImageLarge from  '/public/assets/shared/desktop/bg-pattern-call-to-action.svg';
+import bgPatternProjectIntro from  '/public/assets/app-design/desktop/bg-pattern-intro-app.svg';
+
 import australiaImage from '/public/assets/shared/desktop/illustration-australia.svg';
 import canadaImage from '/public/assets/shared/desktop/illustration-canada.svg';
 import ukImage from '/public/assets/shared/desktop/illustration-united-kingdom.svg';
@@ -16,6 +23,39 @@ import ukMapImageDesk from '/public/assets/locations/desktop/image-map-united-ki
 export const navListItems = ['Our Company', 'locations', 'Contact'];
 export const logoSrc = logoSrcDark;
 
+export const bgPatternOneCircleSmall = bgPatternImageSmall;
+export const bgPatternCircleProjectLarge = bgPatternProjectIntro;
+
+// Hero Mock data example 
+export const heroData = {
+  heroHeading: 'Award-winning custom designs and digital branding solutions',
+  heroDescription: 'With over 10 years in the industry, we are experienced in creating fully responsive websites, app design, and engaging brand experiences. Find out more about our services.',
+  heroBtnText: 'Learn More',
+  heroBgImageDisk,
+  heroImage,
+};
+
+
+// Values Mock data example 
+export const valuesData = [
+  {
+    heading: "Passionate",
+    description: "Each project starts with an in-depth brand research to ensure we only create products that serve a purpose. We merge art, design, and technology into exciting new solutions.",
+    imageDesk: "/assets/home/desktop/illustration-passionate.svg",
+  },
+  {
+    heading: "Resourceful",
+    description: "Everything that we do has a strategic purpose. We use an agile approach in all of our projects and value customer collaboration. It guarantees superior results that fulfill our clients’ needs.",
+    imageDesk: "/assets/home/desktop/illustration-resourceful.svg",
+  },
+  {
+    heading: "Friendly",
+    description: "We are a group of enthusiastic folks who know how to put people first. Our success depends on our customers, and we strive to give them the best experience a company can provide.",
+    imageDesk: "/assets/home/desktop/illustration-friendly.svg",
+  },
+]
+
+// Our Locations Mock data example
 export const ourLocations = [
   {
     country: 'Canada',
@@ -49,12 +89,13 @@ export const ourLocations = [
   },
 ]
 
+// Footer Mock data example
 export const footerData = {
   orderProject : {
     heading:'Let’s talk about your project',
     description:'Ready to take it to the next level? Contact us today and find out how our expertise can help your business grow.',
     buttonLabel:'Get in touch',
-    bgPatternImageSmall,
+    bgPatternImageSmall:bgPatternThreeCircle,
     bgPatternImageLarge,
   },
   logoSrc:logoSrcLight,
@@ -89,25 +130,8 @@ export const footerData = {
   ],                
 }
 
-export interface ProjectsDataProps {
-  id: string;
-  heading: string;
-  introDescription: string;
-  imageMob: any;
-  imageTab: any;
-  imageDesk: any;
-  imageDeskSmall?: any;  
-  projects: {
-    title: string;
-    description: string;
-    image: any;
-    imageAlt: string;
-  }[];
-}
-
 // Projects Mock data example
-
-export const projectsData:ProjectsDataProps[] = [
+export const projectsData= [
   {
     id: 'web-design',
     heading: 'Web Design',
@@ -227,13 +251,16 @@ export const projectsData:ProjectsDataProps[] = [
 
 
 // About Mock data example
-
 export const aboutData = {
-  heading: 'About Us',
+  heroData:{
+    heading: 'About Us',
   description: 'Founded in 2010, we are a creative agency that produces lasting results for our clients. We’ve partnered with many startups, corporations, and nonprofits alike to craft designs that make real impact. We’re always looking forward to creating brands, products, and digital experiences that connect with our clients’ audiences.',
   imageMob: '/assets/about/mobile/image-about-hero.jpg',
   imageTab: '/assets/about/tablet/image-about-hero.jpg',
   imageDesk: '/assets/about/desktop/image-about-hero.jpg',
+  bgSmall:bgPatternOneCircleSmall,
+  bgLarge:heroBgImageDisk,
+  },
   ourTalent: {
     heading:'World-class talent',
     description1: 'We are a crew of strategists, problem-solvers, and technologists. Every design is thoughtfully crafted from concept to launch, ensuring success in its given market. We are constantly updating our skills in a myriad of platforms.',
@@ -250,20 +277,21 @@ export const aboutData = {
     imageTab: '/assets/about/tablet/image-real-deal.jpg',
     imageDesk: '/assets/about/desktop/image-real-deal.jpg',
   },
-  }
+}
 
 // Contact Mock data example
-
 export const contactData = {
   heading: 'Contact Us',
   description: 'Ready to take it to the next level? Let’s talk about your project or idea and find out how we can help your business grow. If you are looking for unique digital experiences that’s relatable to your users, drop us a line.',
-  formInput:{
+  formInputs:{
     name: 'Name',
     email: 'Email Address',
     phone: 'Phone',
     message: 'Message',
     button: 'Submit',
   },
+  bgLarge:heroBgImageDisk,
+  bgSmall:bgPatternImageSmall
 }
 
   
