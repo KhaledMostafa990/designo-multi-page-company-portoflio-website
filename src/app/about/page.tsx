@@ -1,5 +1,4 @@
 import { AboutStorySection } from './../../features/aboutPage/AboutStorySection';
-import Image from 'next/image';
 
 import { aboutData, ourLocations } from '@/data/global';
 
@@ -9,6 +8,10 @@ import { Section } from '@/components/layout';
 
 import bgCirlceSmall from '/public/assets/shared/desktop/bg-pattern-small-circle.svg';
 import bgPatternImageLarge from '/public/assets/home/desktop/bg-pattern-hero-home.svg';
+
+export const metadata = {
+  title: 'About'
+}
 
 export default function About() {
   const { heroData, ourTalent, ourDeal } = aboutData;

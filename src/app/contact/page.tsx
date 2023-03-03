@@ -6,6 +6,10 @@ import { Section } from "@/components/layout";
 import { ContactForm } from '@/components/ContactForm';
 import { LocationItem } from '@/features/locationsPage/LocationItem';
 
+export const metadata = {
+  title: 'Contact'
+}
+
 export default function Contact() {
   const { heading, description, formInputs, bgSmall, bgLarge } = contactData;
   return (
