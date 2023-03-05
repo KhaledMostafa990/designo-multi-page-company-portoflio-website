@@ -2,9 +2,8 @@ import { useEffect } from 'react';
 
 export function useNavSectionObserver(navList: string[]) {
   useEffect(() => {
-    // Observing sections to change active layout on scroll
     const observer = Observer();
-
+    
     navList.forEach((item: HTMLElement | any) => {
       const sections = document.querySelectorAll(`[data-section="${item}"]`);
 
@@ -12,6 +11,13 @@ export function useNavSectionObserver(navList: string[]) {
         const linkToSection = document.querySelector(
           `a[href="#${section.getAttribute('data-section')}"]`
         );
+
+        if(!linkToSection) {
+          section.scrollIntoView({
+            block: 'center',
+            behavior: 'smooth',
+          });
+        };
 
         linkToSection?.addEventListener('click', (e) => {
           e.preventDefault();

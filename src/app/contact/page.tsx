@@ -12,6 +12,7 @@ export const metadata = {
 
 export default function Contact() {
   const { heading, description, formInputs, bgSmall, bgLarge } = contactData;
+
   return (
     <>
       <Section dataSection={`hero`} className='w-full'>

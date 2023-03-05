@@ -14,13 +14,18 @@
     "@types/react-dom": "^18.0.10",
     "eslint": "^8.34.0",
     "eslint-config-next": "^13.2.3",
+    "formik": "^2.2.9",
+    "libphonenumber-js": "^1.10.21",
     "next": "^13.2.3",
+    "nodemailer": "^6.9.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sharp": "^0.31.3",
-    "typescript": "^4.9.5"
+    "typescript": "^4.9.5",
+    "yup": "^1.0.2"
   },
   "devDependencies": {
+    "@types/nodemailer": "^6.4.7",
     "autoprefixer": "^10.4.13",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
