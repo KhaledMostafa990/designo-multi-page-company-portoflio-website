@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { scrollIntoView } from './scrollIntoView';
 
 export function useNavSectionObserver(navList: string[]) {
   useEffect(() => {
@@ -11,20 +12,11 @@ export function useNavSectionObserver(navList: string[]) {
         const linkToSection = document.querySelector(
           `a[href="#${section.getAttribute('data-section')}"]`
         );
-
-        if(!linkToSection) {
-          section.scrollIntoView({
-            block: 'center',
-            behavior: 'smooth',
-          });
-        };
+        
 
         linkToSection?.addEventListener('click', (e) => {
           e.preventDefault();
-          section.scrollIntoView({
-            block: 'start',
-            behavior: 'smooth',
-          });
+          scrollIntoView(section, 'start');
         });
 
         observer.observe(section);
@@ -32,6 +24,7 @@ export function useNavSectionObserver(navList: string[]) {
     });
   }, [navList]);
 }
+
 
 function Observer() {
   return new IntersectionObserver(

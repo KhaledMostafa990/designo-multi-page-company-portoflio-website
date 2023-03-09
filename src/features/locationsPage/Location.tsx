@@ -5,18 +5,25 @@ import { Section } from "@/components/layout";
 import Image from "next/image";
 import bgCirlceSmall from '/public/assets/shared/desktop/bg-pattern-small-circle.svg';
 import { LocationData } from "@/app/locations/page";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavSectionObserver } from "@/utils";
+import { scrollIntoView } from "@/utils/scrollIntoView";
 
 export default function Location({ location, index }: { location: LocationData, index: number }) {
   const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
 
-  useNavSectionObserver([selectedLocation!]);
+  const handleSetLocation = (location: string) => {
+    const section = document.querySelector(`[data-section="${location}"]`);
+    if (section) scrollIntoView(section, 'center');
+  }
 
   useEffect(() => {
-    const selectedLocation = window.location.hash.slice(1);
-    setSelectedLocation(selectedLocation);
-  }, []);
+    setSelectedLocation(window.location.hash.slice(1));
+
+    if (selectedLocation) {
+      handleSetLocation(selectedLocation)
+    }
+  }, [selectedLocation]);
 
 
   return (
