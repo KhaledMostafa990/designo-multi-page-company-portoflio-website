@@ -15,5 +15,7 @@
   "editor.insertSpaces": true,
   "editor.tabSize": 2,
   "reactSnippets.settings.prettierEnabled": true,
-  "editor.fontSize": 15
+  "editor.fontSize": 15,
+  "typescript.experimental.tsserver.web.enableProjectWideIntellisense": true,
+  "typescript.format.insertSpaceAfterConstructor": true
 }

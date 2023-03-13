@@ -2,6 +2,18 @@ import { projectsData, bgPatternOneCircleSmall, bgPatternCircleProjectLarge } fr
 import { Section } from "@/components/layout";
 import { ProjectsPageHero } from '@/features/ProjectsPage/ProjectsPageHero';
 import { ProjectCard } from '@/features/ProjectsPage/ProjectCard';
+import { Metadata } from "next";
+
+export async function generateMetadata({ params }: { params: { project: string } }):Promise<Metadata> {
+  const { project: projectId } = params;
+
+  const project = projectsData.find((project) => project.id === projectId);
+
+  return {
+    title: project?.heading,
+    description: project?.introDescription,
+  };
+}
 
 export default function Page({ params }: { params: { project: string } }) {
   const { project: projectId } = params;

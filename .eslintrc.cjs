@@ -3,10 +3,10 @@ module.exports = {
     project: ['./tsconfig.json'],
   },
   extends: [
-    'next/core-web-vitals',
     'airbnb-base',
     'airbnb-typescript',
     'plugin:prettier/recommended',
+    'prettier'
   ],
   rules: {
     'no-underscore-dangle': false,
