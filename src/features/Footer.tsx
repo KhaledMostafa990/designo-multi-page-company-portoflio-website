@@ -31,12 +31,12 @@ interface FooterData {
 
 
 export default function Footer({ data, classes }: { data: FooterData, classes: string }) {
-  const { orderProject, logoSrc, navListItems, mainLocation, socialMediaIcons } = data;
+  const { orderProject, logoSrc, navListItems, mainLocation, socialMediaIcons, footerCopyright } = data;
 
   return (
     <footer className={`${classes} `}>
 
-      <Section className="min-h-[380px] w-full absolute top-10 left-0 z-10 xl:top-[76px] xl:min-h-[292px]">
+      <Section className="h-fit min-h-fit w-full absolute top-10 left-0 z-10 xl:top-[76px] xl:min-h-[292px]">
         <div className="container">
           <div
             className="relative overflow-hidden rounded-2xl bg-primary-default col-start-2 col-span-10  xl:col-start-0 xl:col-span-12 xl:flex-row">
@@ -110,8 +110,8 @@ export default function Footer({ data, classes }: { data: FooterData, classes: s
                 <LocationInfo location={mainLocation} onFooter />
               </div>
 
-              <div className="lg:flex-1 h-full flex justify-end items-end">
-                <ul className="flex flex-row gap-5 xl:gap-10">
+              <div className="lg:flex-1 h-full flex flex-col items-center gap-6 lg:justify-end lg:items-end">
+                <ul className="flex flex-row gap-6">
                   {socialMediaIcons.map((icon, index) => (
                     <li key={index}>
                       <Link href={icon.link}>
@@ -120,6 +120,14 @@ export default function Footer({ data, classes }: { data: FooterData, classes: s
                     </li>
                   ))}
                 </ul>
+
+                <div className='flex flex-1 flex-col items-center justify-center text-center gap-8 max-w-[225px]'>
+                    <p className='text-xs leading-6 tracking-tight text-light-grey'>{footerCopyright} 
+                      <span className='block text-primary-default md:inline'>
+                        <a href='https://github.com/KhaledMostafa990/'> Khaled Farghly.</a>
+                      </span>
+                    </p>
+                </div>
               </div>
 
             </div>

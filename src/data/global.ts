@@ -128,6 +128,7 @@ export const footerData = {
       link: 'https://www.youtube.com/',
     },
   ],                
+  footerCopyright: '© Easybank Template 2023. All Rights Reserved Developed by',
 }
 
 // Projects Mock data example

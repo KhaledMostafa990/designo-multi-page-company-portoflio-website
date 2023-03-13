@@ -12,7 +12,7 @@ export function Section({ children, className, id, dataSection }: SectionProps) 
     <section
       id={id}
       data-section={dataSection}
-      className={`min-h-full  ${className}`}
+      className={`${className}`}
     >
       {children}
     </section>
