@@ -1,6 +1,4 @@
-import { Section } from "@/components/layout";
-import Image from "next/image";
-
+import Image from 'next/image';
 
 interface ValueProps {
   heading: string;
@@ -29,9 +27,7 @@ export default function Values({ value }: { value: ValueProps }) {
         <h3 className="text-lg tracking-[5px] text-center uppercase md:text-start ">
           {value.heading}
         </h3>
-        <p className="text-center md:text-start md:max-w-md xl:text-center">
-          {value.description}
-        </p>
+        <p className="text-center md:text-start md:max-w-md xl:text-center">{value.description}</p>
       </div>
     </div>
   );

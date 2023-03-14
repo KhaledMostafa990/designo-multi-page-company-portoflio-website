@@ -1,20 +1,12 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import {
-  menuClickHandler,
-  useNavSectionObserver,
-  useViewportOnResize,
-} from '@/utils';
+import Link from 'next/link';
+import { menuClickHandler, useNavSectionObserver, useViewportOnResize } from '@/utils';
 import { HamburgerButton, Logo, Overlay } from '@/components/base';
 import { NavBar } from '@/components/layout';
-import Link from 'next/link';
 
-export default function Header({
-  data,
-}: {
-  data: { navListItems: string[]; logoSrc: any };
-}) {
+export default function Header({ data }: { data: { navListItems: string[]; logoSrc: any } }) {
   const { navListItems, logoSrc } = data;
 
   const headerRef = useRef<HTMLDivElement | null>(null);
@@ -31,7 +23,7 @@ export default function Header({
     navRef.current,
     logoRef.current,
     overlayRef.current,
-    activeClass
+    activeClass,
   );
 
   useNavSectionObserver(navListItems);
@@ -51,7 +43,7 @@ export default function Header({
     }
   }, [isDesktop, navListItems, toggleMenu]);
   return (
-    <header className='z-20 xl:fixed xl:w-full xl:h-[155px] xl:bg-background-default'>
+    <header className="z-20 xl:fixed xl:w-full xl:h-[155px] xl:bg-background-default">
       <Overlay overlayRef={overlayRef} />
 
       <div
@@ -65,11 +57,7 @@ export default function Header({
             <Logo logoSrc={logoSrc} />
           </Link>
 
-          <NavBar
-            navRef={navRef}
-            navListRef={navList}
-            navListItems={navListItems}
-          />
+          <NavBar navRef={navRef} navListRef={navList} navListItems={navListItems} />
           <HamburgerButton onClick={toggleMenu} menuBtnRef={menuBtnRef} />
         </div>
       </div>

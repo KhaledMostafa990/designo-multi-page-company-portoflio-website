@@ -4,15 +4,14 @@ import { scrollIntoView } from './scrollIntoView';
 export function useNavSectionObserver(navList: string[]) {
   useEffect(() => {
     const observer = Observer();
-    
+
     navList.forEach((item: HTMLElement | any) => {
       const sections = document.querySelectorAll(`[data-section="${item}"]`);
 
       sections.forEach((section) => {
         const linkToSection = document.querySelector(
-          `a[href="#${section.getAttribute('data-section')}"]`
+          `a[href="#${section.getAttribute('data-section')}"]`,
         );
-        
 
         linkToSection?.addEventListener('click', (e) => {
           e.preventDefault();
@@ -25,7 +24,6 @@ export function useNavSectionObserver(navList: string[]) {
   }, [navList]);
 }
 
-
 function Observer() {
   return new IntersectionObserver(
     (entries) => {
@@ -33,14 +31,14 @@ function Observer() {
         toggleActiveSection(entry);
       });
     },
-    { threshold: [0.35] }
+    { threshold: [0.35] },
   );
 }
 
 function toggleActiveSection(entry: any) {
   // toggle in/out view active
   const linkToSection = document.querySelector(
-    `a[href="#${entry.target.getAttribute('data-section')}"]`
+    `a[href="#${entry.target.getAttribute('data-section')}"]`,
   );
 
   if (entry.isIntersecting) {

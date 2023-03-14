@@ -1,6 +1,4 @@
 {
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true,
   "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
   "editor.formatOnPaste": false, // required
   "editor.formatOnType": false, // required
@@ -16,6 +14,6 @@
   "editor.tabSize": 2,
   "reactSnippets.settings.prettierEnabled": true,
   "editor.fontSize": 15,
-  "typescript.experimental.tsserver.web.enableProjectWideIntellisense": true,
-  "typescript.format.insertSpaceAfterConstructor": true
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
 }

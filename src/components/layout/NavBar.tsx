@@ -24,12 +24,10 @@ export const NavBar = ({
       >
         <ul ref={navListRef} className="flex flex-col px-6 py-8 md:p-0 md:flex-row">
           {navListItems.map((item, index) => {
-            const itemLink = item === 'Our Company' ? '/about' : `/${item.toLowerCase().replace(' ', '-')}`;
+            const itemLink =
+              item === 'Our Company' ? '/about' : `/${item.toLowerCase().replace(' ', '-')}`;
             return (
-              <li
-                key={index}
-                className={` md:py-0 md:border-none md:mx-5`}
-              >
+              <li key={index} className={` md:py-0 md:border-none md:mx-5`}>
                 <Link
                   href={itemLink}
                   className="uppercase block py-4 text-start text-white text-xl hover:underline transition-all duration-200 border-b-4 border-transparent md:py-0 md:text-xs md:text-dark-grey"

@@ -7,26 +7,20 @@ type Data = {
   message: string;
 };
 
-export default async function sendEmail(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
-
+export default async function sendEmail(req: NextApiRequest, res: NextApiResponse<Data>) {
   if (req.method === 'POST') {
     const formData = <ContactInputsProps>req.body;
 
-    console.log(formData);
-
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
-      port: parseInt(process.env.SMTP_PORT!),
+      port: parseInt(process.env.SMTP_PORT!, 5),
       secure: false,
       auth: {
         user: process.env.SMTP_USERNAME,
         pass: process.env.SMTP_PASSWORD,
       },
     });
-    
+
     const message = {
       from: process.env.SMTP_FROM_ADDRESS,
       to: process.env.SMTP_TO_ADDRESS,
@@ -40,7 +34,7 @@ export default async function sendEmail(
     };
 
     try {
-      const info = await transporter.sendMail(message);   
+      const info = await transporter.sendMail(message);
       console.log('Message sent: %s', info.messageId);
       res.status(200).json({ message: 'Email sent' });
     } catch (error) {

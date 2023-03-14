@@ -1,37 +1,35 @@
 'use client';
 
-import { LocationInfo } from "@/components/base";
-import { Section } from "@/components/layout";
-import Image from "next/image";
-import bgCirlceSmall from '/public/assets/shared/desktop/bg-pattern-small-circle.svg';
-import { LocationData } from "@/app/locations/page";
-import { useEffect, useRef, useState } from "react";
-import { useNavSectionObserver } from "@/utils";
-import { scrollIntoView } from "@/utils/scrollIntoView";
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import bgCirlceSmall from 'public/assets/shared/desktop/bg-pattern-small-circle.svg';
+import { LocationInfo } from '@/components/base';
+import { Section } from '@/components/layout';
+import { LocationData } from '@/app/locations/page';
+import { scrollIntoView } from '@/utils/scrollIntoView';
 
-export default function Location({ location, index }: { location: LocationData, index: number }) {
+export default function Location({ location, index }: { location: LocationData; index: number }) {
   const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
 
-  const handleSetLocation = (location: string) => {
-    const section = document.querySelector(`[data-section="${location}"]`);
+  const handleSetLocation = (loc: string) => {
+    const section = document.querySelector(`[data-section="${loc}"]`);
     if (section) scrollIntoView(section, 'center');
-  }
+  };
 
   useEffect(() => {
     setSelectedLocation(window.location.hash.slice(1));
 
     if (selectedLocation) {
-      handleSetLocation(selectedLocation)
+      handleSetLocation(selectedLocation);
     }
   }, [selectedLocation]);
-
 
   return (
     <Section
       dataSection={location.country.toLowerCase().replace(' ', '-')}
       id={location.country.toLowerCase().replace(' ', '-')}
     >
-      <div className='container'>
+      <div className="container">
         <div
           className={`col-start-0 col-span-12 
               w-full h-full overflow-hidden flex flex-col
@@ -39,7 +37,6 @@ export default function Location({ location, index }: { location: LocationData, 
               xl:col-start-0 xl:col-span-12 xl:gap-8
               ${index === 1 ? 'xl:flex-row' : 'xl:flex-row-reverse'}`}
         >
-
           {/* Map Image */}
           <picture className="relative z-10 w-full h-auto xl:max-w-fit">
             <Image
@@ -75,10 +72,11 @@ export default function Location({ location, index }: { location: LocationData, 
               />
             </picture>
 
-            <div className='text-black h-full flex flex-col justify-center items-center gap-8 px-4 text-center
-                md:text-start md:items-start md:w-fit md:mx-auto xl:text-start'>
-
-              <h2 className='text-primary-default text-3xl md:text-4xl md:text-start'>
+            <div
+              className="text-black h-full flex flex-col justify-center items-center gap-8 px-4 text-center
+                md:text-start md:items-start md:w-fit md:mx-auto xl:text-start"
+            >
+              <h2 className="text-primary-default text-3xl md:text-4xl md:text-start">
                 {location.country}
               </h2>
 
@@ -90,9 +88,8 @@ export default function Location({ location, index }: { location: LocationData, 
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </Section>
-  )
+  );
 }

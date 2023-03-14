@@ -1,12 +1,6 @@
 import React from 'react';
 
-export function HamburgerButton({
-  onClick,
-  menuBtnRef,
-}: {
-  onClick: any;
-  menuBtnRef: any;
-}) {
+export function HamburgerButton({ onClick, menuBtnRef }: { onClick: any; menuBtnRef: any }) {
   return (
     <>
       <div className="md:hidden flex items-center z-40">

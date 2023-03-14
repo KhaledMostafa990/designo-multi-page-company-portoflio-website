@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 interface StoryDataProps {
   heading: string;
@@ -10,8 +10,12 @@ interface StoryDataProps {
 export function AboutStorySection({
   data,
   bgCirlceSmall,
-  bgPatternImageLarge
-}: { data: StoryDataProps, bgCirlceSmall: any, bgPatternImageLarge: any }) {
+  bgPatternImageLarge,
+}: {
+  data: StoryDataProps;
+  bgCirlceSmall: any;
+  bgPatternImageLarge: any;
+}) {
   return (
     <>
       {/* Main image */}
@@ -51,15 +55,13 @@ export function AboutStorySection({
           />
         </picture>
 
-
         {/* Content */}
-        <div
-          className='text-black h-full flex flex-col justify-center items-center gap-8 px-4 text-center   xl:text-start xl:items-start xl:pl-20'
-        >
-          <h2 className='text-primary-default text-2xl md:text-4xl'>{data.heading}</h2>
-          <p className='max-w-[355px] md:max-w-xl  xl:max-w-lg'>{data.description1}</p>
-          <p className='max-w-[355px] md:max-w-xl  xl:max-w-lg'>{data.description2}</p>
+        <div className="text-black h-full flex flex-col justify-center items-center gap-8 px-4 text-center   xl:text-start xl:items-start xl:pl-20">
+          <h2 className="text-primary-default text-2xl md:text-4xl">{data.heading}</h2>
+          <p className="max-w-[355px] md:max-w-xl  xl:max-w-lg">{data.description1}</p>
+          <p className="max-w-[355px] md:max-w-xl  xl:max-w-lg">{data.description2}</p>
         </div>
-      </div></>
+      </div>
+    </>
   );
 }

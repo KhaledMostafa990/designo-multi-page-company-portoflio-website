@@ -1,6 +1,14 @@
-import React from 'react'
+import React from 'react';
 
-export function PrimaryButton({ children, classes, onLight }: { children: React.ReactNode, classes?: string, onLight: boolean }) {
+export function PrimaryButton({
+  children,
+  classes,
+  onLight,
+}: {
+  children: React.ReactNode;
+  classes?: string;
+  onLight: boolean;
+}) {
   const textColor = onLight ? 'text-white' : 'text-black';
   const bgColor = onLight ? 'bg-primary-default' : 'bg-white';
   const hoverColor = onLight ? '' : 'hover:text-white';
@@ -14,5 +22,5 @@ export function PrimaryButton({ children, classes, onLight }: { children: React.
         {children}
       </button>
     </>
-  )
+  );
 }

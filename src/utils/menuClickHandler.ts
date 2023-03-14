@@ -3,12 +3,11 @@ export function menuClickHandler(
   menuRef: HTMLElement | null,
   logoRef: HTMLElement | null,
   overlayRef: HTMLElement | null,
-  activeClass: string
+  activeClass: string,
 ) {
   return () => {
     if (menuButton) {
-      menuButton.ariaExpanded =
-        menuButton?.ariaExpanded === 'false' ? 'true' : 'false';
+      menuButton.ariaExpanded = menuButton?.ariaExpanded === 'false' ? 'true' : 'false';
       menuButton.classList.toggle(activeClass);
     }
     logoRef?.firstElementChild?.classList.toggle(activeClass);

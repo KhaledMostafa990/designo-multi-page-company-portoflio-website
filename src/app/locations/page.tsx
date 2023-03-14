@@ -1,9 +1,9 @@
-import { ourLocations } from "@/data/global";
-import Location from "@/features/locationsPage/Location";
+import { ourLocations } from '@/data/global';
+import Location from '@/features/locationsPage/Location';
 
 export const metadata = {
-  title: 'Locations'
-}
+  title: 'Locations',
+};
 
 export interface LocationData {
   country: string;
@@ -20,11 +20,7 @@ export default function Locations() {
   return (
     <div className="flex flex-col gap-8">
       {ourLocations.map((location: LocationData, index) => (
-        <Location
-          key={location.country}
-          location={location}
-          index={index}
-        />
+        <Location key={location.country} location={location} index={index} />
       ))}
     </div>
   );

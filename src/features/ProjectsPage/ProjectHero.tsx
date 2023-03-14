@@ -1,8 +1,8 @@
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
 
-export function ProjectHero({ item, projectPage }: { item: any, projectPage?: boolean }) {
+export function ProjectHero({ item, projectPage }: { item: any; projectPage?: boolean }) {
   const link = item.id;
   const imageDesk = projectPage ? item.imageDeskSmall : item.imageDesk;
 
@@ -15,9 +15,17 @@ export function ProjectHero({ item, projectPage }: { item: any, projectPage?: bo
       >
         <h2 className="text-2xl text-white uppercase xl:text-4xl">{item.heading}</h2>
         <Link href={`/projects/${link}`}>
-          <button className="flex gap-3 justify-center items-center text-white uppercase tracking-widest text-center text-sm">View Project
+          <button className="flex gap-3 justify-center items-center text-white uppercase tracking-widest text-center text-sm">
+            View Project
             <i>
-              <svg width="7" height="10" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4-4 4" stroke="#E7816B" stroke-width="2" fill="none" fill-rule="evenodd" />
+              <svg width="7" height="10" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M1 1l4 4-4 4"
+                  stroke="#E7816B"
+                  stroke-width="2"
+                  fill="none"
+                  fill-rule="evenodd"
+                />
               </svg>
             </i>
           </button>

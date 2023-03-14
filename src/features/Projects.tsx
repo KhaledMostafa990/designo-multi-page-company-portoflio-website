@@ -1,5 +1,6 @@
-import React from "react";
-import { ProjectHero } from "@/features/ProjectsPage/ProjectHero";
+import React from 'react';
+import { ProjectHero } from '@/features/ProjectsPage/ProjectHero';
+
 export interface ProjectsDataProps {
   id: string;
   heading: string;
@@ -17,7 +18,6 @@ export interface ProjectsDataProps {
 }
 
 export default function Projects({ data }: { data: ProjectsDataProps[] }) {
-
   return (
     <>
       <div className={`relative h-auto`}>
