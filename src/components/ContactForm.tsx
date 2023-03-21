@@ -8,6 +8,8 @@ import { Formik, Form, Field, ErrorMessage, FormikHelpers } from 'formik';
 import { CountryCode, isValidPhoneNumber } from 'libphonenumber-js';
 import { useState } from 'react';
 import { PrimaryButton } from '@/components/base';
+import { useAlertContext } from '@/data/AlertContext';
+import { postContactMessage } from '@/utils';
 
 export interface ContactInputsProps {
   name: string;
@@ -29,6 +31,7 @@ const avaliableCountryLisr = [
 ];
 export function ContactForm({ formInputs }: { formInputs: ContactInputsProps }) {
   const [country, setCountry] = useState<CountryCode>('EG');
+  const { onOpen } = useAlertContext();
 
   const ContactFormSchema = Yup.object().shape({
     name: Yup.string().required('Name is required'),
@@ -50,18 +53,13 @@ export function ContactForm({ formInputs }: { formInputs: ContactInputsProps }) 
   ) => {
     try {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const data = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(values),
-      });
-      alert('Thank you for your message! We will be in touch soon.');
+      const success = await postContactMessage();
+      console.log(success);
+      if (success) onOpen('success', 'Thank you for your message! We will be in touch soon.');
       setSubmitting(false);
     } catch (error) {
       console.error(error);
-      alert('Oops! Something went wrong. Please try again later.');
+      onOpen('error', 'Oops! Something went wrong. Please try again later.');
       setSubmitting(false);
     }
   };
