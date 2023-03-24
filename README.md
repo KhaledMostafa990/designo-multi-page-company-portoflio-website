@@ -11,6 +11,13 @@ A solution to the [Designo agency website **Guru** challenge on Frontend Mentor]
 - [Getting started](#getting-started)
 - [Useful resources](#useful-resources)
 
+## Screenshots
+
+![Designo Home](./screenshot/designo_home.png)
+![Responsive home screen](./screenshot/responsive-home-screen.png)
+![Send contact form](./screenshot/contact-form-send.png)
+![Contact receive ](./screenshot/contact-receive.png)
+
 ## The challenge
 
 Users should be able to:
@@ -20,14 +27,13 @@ Users should be able to:
 - Receive an error message when the contact form is submitted if:
   - The `Name`, `Email Address` or `Your Message` fields are empty should show "Can't be empty"
   - The `Email Address` is not formatted correctly should show "Please use a valid email address"
+- Working email contact form intergrating with API in order to be received regarding to the website owner information (currently disabled)
+- Stiky navigation bar
+- SEO optimization
+
+Soon:
+- awesome animation
 - **Bonus**: View actual locations on the locations page maps (we recommend [Leaflet JS](https://leafletjs.com/) for this)
-
-## Screenshots
-
-![Designo Home](./screenshot/designo_home.png)
-![Responsive home screen](./screenshot/responsive-home-screen.png)
-![Send contact form](./screenshot/contact-form-send.png)
-![Contact receive ](./screenshot/contact-receive.png)
 
 ### Links
 
@@ -65,10 +71,9 @@ This will install all the necessary dependencies required for running the projec
 ```
 npm run dev
 ```
+This will start the development server at http://localhost:3000.
 
 5. Setup .env.local file to store your sercet values for contact form
-
-This will start the development server at http://localhost:3000.
 
 For Mac
 
@@ -79,7 +84,7 @@ touch .env.local
 For Win
 
 ```
-type nul > .env.local
+echo > .env.local
 ```
 
 To set up your email environment variables, you'll need to gather the necessary information for the following variables:
