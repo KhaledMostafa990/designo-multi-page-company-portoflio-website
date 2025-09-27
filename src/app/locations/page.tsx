@@ -6,7 +6,6 @@ export const metadata = {
   title: 'Locations',
 };
 
-
 export default function Locations() {
   return (
     <div className="flex flex-col gap-8">
