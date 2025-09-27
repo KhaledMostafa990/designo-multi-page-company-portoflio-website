@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 /* Tailwind v4 theme tokens */
 @theme {
@@ -13,18 +11,18 @@
   --breakpoint-3xl: 1600px;
   --breakpoint-4xl: 1920px;
 
-  /* Colors (preserve existing names) */
-  --color-primary-default: #E7816B;
-  --color-secondary-default: #FFAD9B;
-  --color-light-grey: #F2F2F2;
-  --color-dark-grey: #333136;
-  --color-background-default: #FFFFFF;
-  --color-background-black: #1D1C1E;
+  /* Colors (use rgb components so /opacity variants work) */
+  --color-primary-default: 231 129 107;     /* #E7816B */
+  --color-secondary-default: 255 173 155;   /* #FFAD9B */
+  --color-light-grey: 242 242 242;          /* #F2F2F2 */
+  --color-dark-grey: 51 49 54;              /* #333136 */
+  --color-background-default: 255 255 255;  /* #FFFFFF */
+  --color-background-black: 29 28 30;       /* #1D1C1E */
 
   /* Fonts */
   --font-primary: var(--font-family-jost);
 
-  /* Type ramp (sizes only; use leading-*/tracking-* utilities as needed) */
+  /* Type ramp (sizes only; use leading- and tracking- utilities as needed) */
   --text-xs: 14px;
   --leading-xs: 14px;
   --tracking-xs: 0.125em; /* ~2px */
@@ -59,9 +57,17 @@
   --tracking-5xl: 0.125em;
 }
 
-.container {
-  @apply grid grid-cols-12 max-w-[100vw] xl:w-[1111px] mx-auto;
-  max-width: 100vw;
+@layer utilities {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    max-width: 100vw;
+    margin-inline: auto;
+  }
+  @media (min-width: 1280px) {
+    .container { width: 1111px; }
+  }
+  .font-primary { font-family: var(--font-primary); }
 }
 
 .custom-hamburger-menu {
