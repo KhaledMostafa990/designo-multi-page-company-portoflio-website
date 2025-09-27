@@ -7,9 +7,9 @@ import { ProjectCard } from '@/features/ProjectsPage/ProjectCard';
 export async function generateMetadata({
   params,
 }: {
-  params: { project: string };
+  params: Promise<{ project: string }>;
 }): Promise<Metadata> {
-  const { project: projectId } = params;
+  const { project: projectId } = await params;
 
   const project = projectsData.find((p) => p.id === projectId);
 
@@ -19,8 +19,8 @@ export async function generateMetadata({
   };
 }
 
-export default function Page({ params }: { params: { project: string } }) {
-  const { project: projectId } = params;
+export default async function Page({ params }: { params: Promise<{ project: string }> }) {
+  const { project: projectId } = await params;
 
   return (
     <>

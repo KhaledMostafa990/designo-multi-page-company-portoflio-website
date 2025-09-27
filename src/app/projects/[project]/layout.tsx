@@ -2,14 +2,14 @@ import { Section } from '@/components/layout';
 import { ProjectHero } from '@/features/ProjectsPage/ProjectHero';
 import { projectsData } from '@/data/global';
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
-  params: { project: string };
+  params: Promise<{ project: string }>;
 }) {
-  const { project: projectId } = params;
+  const { project: projectId } = await params;
   const filteredProjectData = projectsData.filter((project) => project.id !== projectId);
   return (
     <>
