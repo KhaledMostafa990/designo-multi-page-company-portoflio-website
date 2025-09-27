@@ -30,8 +30,7 @@
     "**/**/**/**/**/**/*.ts",
     "**/**/**/**/**/**/*.tsx",
     ".next/types/**/**/*.ts",
-    ".next/types/**/*.ts",
-    "/home/deep/designo-multi-page-company-portoflio-website/.next/types/**/*.ts"
+    ".next/types/**/*.ts"
   ],
   "exclude": ["node_modules"]
 }
