@@ -1,16 +1,11 @@
-import { ourLocations } from '@/data/global';
-import Location from '@/features/locationsPage/Location';
-import type { LocationData } from '@/types/locations';
-
 export const metadata = {
   title: 'Locations',
 };
 
-export default function Locations() {
-  return null;
-}
+import { ourLocations } from '@/data/global';
+import Location from '@/features/locationsPage/Location';
+import type { LocationData } from '@/types/locations';
 
-/* Legacy content migrated to /[locale]/locations
 export default function Locations() {
   return (
     <div className="flex flex-col gap-8">
@@ -20,4 +15,3 @@ export default function Locations() {
     </div>
   );
 }
-*/

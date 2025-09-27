@@ -11,7 +11,8 @@
   - App builds after dependency install
   - Docs added and linked in DOCUMENTATION_MAP
 - branch: day-1/upgrade-foundations
-- status: in-progress
+- status: verified-build
+- notes: Tailwind v4 theme tokens migrated to @theme in globals.scss; tailwind.config minimized. Install completed after resolving ESLint peer deps and lock reset. Type-check passed, lint fixed (broke import cycle + prettier), production build passed.
 - dependencies: kanban-latest (versions, patterns), BrightWebPath (i18n patterns)
 - complexity: medium
 - commits: TBD

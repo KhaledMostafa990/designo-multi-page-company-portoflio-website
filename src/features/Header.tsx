@@ -49,7 +49,7 @@ export default function Header({ data }: { data: { navListItems: string[]; logoS
       <div
         ref={headerRef}
         className="container fixed bg-background-default
-          shadow-sm transition-all duration-[0.84s] z-20
+           transition-all duration-[0.84s] z-20
           xl:left-[50%] xl:translate-x-[-50%]"
       >
         <div className="col-start-2 col-span-10 xl:col-start-0 xl:col-span-12 py-8 flex justify-between items-center transition-all duration-[0.84s] xl:py-16">

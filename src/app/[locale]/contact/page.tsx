@@ -1,3 +1,7 @@
+export const metadata = {
+  title: 'Contact',
+};
+
 import Image from 'next/image';
 
 import { contactData, ourLocations } from '@/data/global';
@@ -6,15 +10,6 @@ import { Section } from '@/components/layout';
 import { ContactForm } from '@/components/ContactForm';
 import { LocationItem } from '@/features/locationsPage/LocationItem';
 
-export const metadata = {
-  title: 'Contact',
-};
-
-export default function Contact() {
-  return null;
-}
-
-/* Legacy content migrated to /[locale]/contact
 export default function Contact() {
   const { heading, description, formInputs, bgSmall } = contactData;
 
@@ -55,7 +50,6 @@ export default function Contact() {
     </>
   );
 }
-*/
 
 function ContactIntro({
   heading,
