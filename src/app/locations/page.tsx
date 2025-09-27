@@ -1,20 +1,11 @@
 import { ourLocations } from '@/data/global';
 import Location from '@/features/locationsPage/Location';
+import type { LocationData } from '@/types/locations';
 
 export const metadata = {
   title: 'Locations',
 };
 
-export interface LocationData {
-  country: string;
-  officeName: string;
-  fullAddress: string;
-  phone: string;
-  email: string;
-  mapImageTab: any;
-  mapImageDesk: any;
-  image: any;
-}
 
 export default function Locations() {
   return (

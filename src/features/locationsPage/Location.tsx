@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import bgCirlceSmall from 'public/assets/shared/desktop/bg-pattern-small-circle.svg';
 import { LocationInfo } from '@/components/base';
 import { Section } from '@/components/layout';
-import { LocationData } from '@/app/locations/page';
+import type { LocationData } from '@/types/locations';
 import { scrollIntoView } from '@/utils/scrollIntoView';
 
 export default function Location({ location, index }: { location: LocationData; index: number }) {

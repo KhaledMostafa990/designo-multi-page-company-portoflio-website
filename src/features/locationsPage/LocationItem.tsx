@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { LocationData } from '@/app/locations/page';
+import type { LocationData } from '@/types/locations';
 import { PrimaryButton } from '@/components/base';
 
 export function LocationItem({ location }: { location: LocationData }) {
