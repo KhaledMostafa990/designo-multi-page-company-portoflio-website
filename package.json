@@ -28,6 +28,8 @@
   "devDependencies": {
     "@types/nodemailer": "^6.4.17",
     "@tailwindcss/postcss": "^4.1.13",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
     "autoprefixer": "^10.4.21",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^18.0.0",
