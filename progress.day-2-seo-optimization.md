@@ -1,0 +1,33 @@
+# Progress: Day-2 / seo-optimization
+
+- title: Day-2 SEO Optimization & Analytics
+- tasks:
+  - Create SEO helper library with metadata generation
+  - Implement robots.txt and sitemap.xml generation
+  - Add structured data (JSON-LD) for Organization, BreadcrumbList, WebSite
+  - Optimize page-level metadata with multilingual support
+  - Add Open Graph and Twitter Card meta tags
+  - Implement image optimization and alt text translations
+  - Add Core Web Vitals optimization (fonts, images, bundle)
+  - Integrate @vercel/analytics and next/script for tracking
+  - Create internal linking system for related projects
+  - Review and optimize content for keywords
+  - Add canonical URLs and hrefLang alternates
+  - Performance auditing and optimization
+- criteria:
+  - All pages have proper meta tags and structured data
+  - Lighthouse SEO score >90 for all pages
+  - Sitemap.xml and robots.txt functional
+  - Core Web Vitals meet thresholds
+  - Analytics integration working
+  - Type-check and lint pass
+  - Build succeeds
+- branch: day-2/seo-optimization
+- status: in-progress
+- dependencies: BrightWebPath SEO patterns, Next.js 15 App Router features
+- complexity: high
+- commits: TBD
+- PR: TBD
+- reviewer: @khaled
+- completed_at: null
+- notes: Following comprehensive SEO roadmap based on BrightWebPath best practices

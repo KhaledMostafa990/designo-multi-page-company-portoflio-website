@@ -3,10 +3,38 @@ import { contactData as baseContactData, ourLocations } from '@/data/global';
 import { Section } from '@/components/layout';
 import { ContactForm } from '@/components/ContactForm';
 import { LocationItem } from '@/features/locationsPage/LocationItem';
+import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
+import { Metadata } from 'next';
 
-export const metadata = {
-  title: 'Contact',
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://designo.com';
+  const messages = (await import(`../../../../messages/${locale}.json`)).default as any;
+
+  return generateSEOMetadata({
+    title: messages?.Contact?.Heading || 'Contact Us',
+    description:
+      messages?.Contact?.Description ||
+      "Ready to take it to the next level? Let's talk about your project and find out how we can help your business grow.",
+    keywords: [
+      'contact designo',
+      'get in touch',
+      'project quote',
+      'design consultation',
+      'creative agency contact',
+    ],
+    locale,
+    url: `${baseUrl}/${locale}/contact`,
+    alternateLocales: [
+      { locale: 'en', url: `${baseUrl}/en/contact` },
+      { locale: 'ar', url: `${baseUrl}/ar/contact` },
+    ],
+  });
+}
 
 export default async function Contact({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -20,9 +48,9 @@ export default async function Contact({ params }: { params: Promise<{ locale: st
     message: messages?.Contact?.Form?.Message ?? baseContactData.formInputs.message,
     button: messages?.Contact?.Form?.Submit ?? baseContactData.formInputs.button,
   } as const;
-  
+
   // Translate locations data
-  const translatedLocations = ourLocations.map(location => ({
+  const translatedLocations = ourLocations.map((location) => ({
     ...location,
     country: messages?.Locations?.[location.country]?.Title ?? location.country,
   }));
@@ -60,9 +88,9 @@ export default async function Contact({ params }: { params: Promise<{ locale: st
               xl:col-start-0 xl:col-span-12 xl:flex-row xl:gap-36 xl:justify-center"
           >
             {translatedLocations.map((location) => (
-              <LocationItem 
-                key={location.country} 
-                location={location} 
+              <LocationItem
+                key={location.country}
+                location={location}
                 seeLocationText={messages?.Locations?.SeeLocation ?? 'SEE LOCATION'}
               />
             ))}

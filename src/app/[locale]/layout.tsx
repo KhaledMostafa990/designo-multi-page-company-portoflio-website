@@ -2,6 +2,9 @@
 import './globals.css';
 import { Jost } from 'next/font/google';
 import { notFound } from 'next/navigation';
+import Script from 'next/script';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import Header from '@/features/Header';
 import Footer from '@/features/Footer';
 import Alert from '@/components/base/Alert';
@@ -10,11 +13,41 @@ import { footerData, logoSrc } from '@/data/global';
 import { AuthProvider } from '@/features/auth/AuthProvider';
 import { TopBar } from '@/features/topbar';
 import AuthNotifier from '@/features/auth/AuthNotifier';
+import {
+  generateMetadata as generateSEOMetadata,
+  generateOrganizationJsonLd,
+  generateWebsiteJsonLd,
+} from '@/lib/seo';
 import { Suspense } from 'react';
+import { Metadata } from 'next';
 
-const jostFont = Jost({ subsets: ['latin'], variable: '--font-family-jost' });
+const jostFont = Jost({
+  subsets: ['latin'],
+  variable: '--font-family-jost',
+  display: 'swap',
+  preload: true,
+});
 
 const locales = ['en', 'ar'] as const;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://designo.com';
+
+  return generateSEOMetadata({
+    locale,
+    url: `${baseUrl}/${locale}`,
+    alternateLocales: locales.map((loc) => ({
+      locale: loc,
+      url: `${baseUrl}/${loc}`,
+    })),
+  });
+}
+
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
@@ -62,6 +95,24 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <Script
+          id="organization-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generateOrganizationJsonLd()),
+          }}
+        />
+        <Script
+          id="website-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generateWebsiteJsonLd()),
+          }}
+        />
+      </head>
       <body className="scroll-smooth">
         <AuthProvider>
           <AlertProvider>
@@ -114,6 +165,8 @@ export default async function RootLayout({
             </div>
           </AlertProvider>
         </AuthProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

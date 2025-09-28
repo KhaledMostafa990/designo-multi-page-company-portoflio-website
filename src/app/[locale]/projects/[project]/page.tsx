@@ -3,20 +3,75 @@ import { projectsData, bgPatternOneCircleSmall, bgPatternCircleProjectLarge } fr
 import { Section } from '@/components/layout';
 import { ProjectsPageHero } from '@/features/ProjectsPage/ProjectsPageHero';
 import { ProjectCard } from '@/features/ProjectsPage/ProjectCard';
+import {
+  generateMetadata as generateSEOMetadata,
+  generateBreadcrumbJsonLd,
+  generateArticleJsonLd,
+} from '@/lib/seo';
+import Script from 'next/script';
 
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string; project: string }>;
 }): Promise<Metadata> {
-  const { project: projectId } = await params;
+  const { project: projectId, locale } = await params;
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://designo.com';
+  const messages = (await import(`../../../../../messages/${locale}.json`)).default as any;
 
   const project = projectsData.find((p) => p.id === projectId);
+  if (!project) {
+    return generateSEOMetadata({ locale });
+  }
 
-  return {
-    title: project?.heading,
-    description: project?.introDescription,
-  };
+  const projectKey =
+    project.id === 'web-design'
+      ? 'WebDesign'
+      : project.id === 'app-design'
+        ? 'AppDesign'
+        : 'GraphicDesign';
+  const title = messages?.Projects?.[projectKey]?.Title ?? project.heading;
+  const description = messages?.Projects?.[projectKey]?.Description ?? project.introDescription;
+
+  const keywords =
+    {
+      'web-design': [
+        'web design',
+        'responsive websites',
+        'e-commerce',
+        'web development',
+        'UI design',
+      ],
+      'app-design': [
+        'app design',
+        'mobile apps',
+        'iOS design',
+        'Android design',
+        'user experience',
+      ],
+      'graphic-design': [
+        'graphic design',
+        'branding',
+        'print design',
+        'logo design',
+        'visual identity',
+      ],
+    }[project.id] || [];
+
+  return generateSEOMetadata({
+    title,
+    description,
+    keywords: [...keywords, 'designo', 'creative agency', 'portfolio'],
+    locale,
+    url: `${baseUrl}/${locale}/projects/${project.id}`,
+    type: 'article',
+    alternateLocales: [
+      { locale: 'en', url: `${baseUrl}/en/projects/${project.id}` },
+      { locale: 'ar', url: `${baseUrl}/ar/projects/${project.id}` },
+    ],
+    publishedTime: '2024-01-01T00:00:00.000Z',
+    modifiedTime: new Date().toISOString(),
+  });
 }
 
 export default async function Page({
@@ -26,38 +81,74 @@ export default async function Page({
 }) {
   const { project: projectId, locale } = await params;
   const messages = (await import(`../../../../../messages/${locale}.json`)).default as any;
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://designo.com';
+
+  const project = projectsData.find((p) => p.id === projectId);
+  if (!project) {
+    return <div>Project not found</div>;
+  }
+
+  const projectKey =
+    project.id === 'web-design'
+      ? 'WebDesign'
+      : project.id === 'app-design'
+        ? 'AppDesign'
+        : 'GraphicDesign';
+  const title = messages?.Projects?.[projectKey]?.Title ?? project.heading;
+  const description = messages?.Projects?.[projectKey]?.Description ?? project.introDescription;
+
+  const breadcrumbs = [
+    { name: 'Home', url: `${baseUrl}/${locale}` },
+    { name: title, url: `${baseUrl}/${locale}/projects/${project.id}` },
+  ];
+
+  const articleData = {
+    title,
+    description,
+    url: `${baseUrl}/${locale}/projects/${project.id}`,
+    image: `${baseUrl}${project.imageDesk}`,
+    publishedTime: '2024-01-01T00:00:00.000Z',
+    modifiedTime: new Date().toISOString(),
+  };
 
   return (
     <>
-      {projectsData
-        .filter((project) => project.id === projectId)
-        .map((project) => {
-          const projectKey = project.id === 'web-design' ? 'WebDesign' : 
-                           project.id === 'app-design' ? 'AppDesign' : 'GraphicDesign';
-          const heading = messages?.Projects?.[projectKey]?.Title ?? project.heading;
-          const introDescription = messages?.Projects?.[projectKey]?.Description ?? project.introDescription;
-          
-          // Translate individual projects with proper key mapping
-          const translatedProjects = project.projects.map(proj => {
-            // Map project titles to translation keys
-            let translationKey = proj.title;
-            
-            // Handle special cases where title doesn't match translation key
-            if (proj.title === 'Tim Brown') {
-              translationKey = 'Change';
-            } else if (proj.title === 'Boxed Water') {
-              translationKey = 'BoxedWater';
-            } else if (proj.title === 'Science!') {
-              translationKey = 'Science';
-            }
-            
-            return {
-              ...proj,
-              description: messages?.Projects?.[projectKey]?.[translationKey] ?? proj.description
-            };
-          });
-          
-          return (
+      <Script
+        id="breadcrumb-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateBreadcrumbJsonLd(breadcrumbs)),
+        }}
+      />
+      <Script
+        id="article-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateArticleJsonLd(articleData)),
+        }}
+      />
+      {(() => {
+        // Translate individual projects with proper key mapping
+        const translatedProjects = project.projects.map((proj) => {
+          // Map project titles to translation keys
+          let translationKey = proj.title;
+
+          // Handle special cases where title doesn't match translation key
+          if (proj.title === 'Tim Brown') {
+            translationKey = 'Change';
+          } else if (proj.title === 'Boxed Water') {
+            translationKey = 'BoxedWater';
+          } else if (proj.title === 'Science!') {
+            translationKey = 'Science';
+          }
+
+          return {
+            ...proj,
+            description: messages?.Projects?.[projectKey]?.[translationKey] ?? proj.description,
+          };
+        });
+
+        return (
           <>
             <Section>
               <div className="container">
@@ -66,8 +157,8 @@ export default async function Page({
                   md:py-8 md:col-start-2 md:col-span-10 md:rounded-2xl xl:col-start-0 xl:col-span-12"
                 >
                   <ProjectsPageHero
-                    heading={heading}
-                    introDescription={introDescription}
+                    heading={title}
+                    introDescription={description}
                     bgPatternSmall={bgPatternOneCircleSmall}
                     bgPatternLarge={bgPatternCircleProjectLarge}
                   />
@@ -88,8 +179,8 @@ export default async function Page({
               </div>
             </Section>
           </>
-          );
-        })}
+        );
+      })()}
     </>
   );
 }

@@ -11,12 +11,12 @@
   - App builds after dependency install
   - Docs added and linked in DOCUMENTATION_MAP
 - branch: day-1/upgrade-foundations
-- status: verified-build
-- notes: Tailwind v4 theme tokens migrated to @theme in globals.scss; tailwind.config minimized. Install completed after resolving ESLint peer deps and lock reset. Type-check passed, lint fixed (broke import cycle + prettier), production build passed.
+- status: completed
+- notes: Tailwind v4 theme tokens migrated to @theme in globals.scss; tailwind.config minimized. Install completed after resolving ESLint peer deps and lock reset. Type-check passed, lint fixed (broke import cycle + prettier), production build passed. Complete i18n implementation with next-intl for English/Arabic support.
 - dependencies: kanban-latest (versions, patterns), BrightWebPath (i18n patterns)
 - complexity: medium
-- commits: TBD
-- PR: TBD
+- commits: 5fc2a60 (feat(i18n): complete multilingual implementation), 464f186 (fix: normalize README file permissions)
+- PR: Merged to main
 - reviewer: @khaled
-- completed_at: null
-- notes: Next step after install: verify build, then Tailwind theme migration
+- completed_at: 2025-01-28T15:02:00Z
+- notes: Successfully completed foundations upgrade with full i18n support. Next: SEO optimization phase.

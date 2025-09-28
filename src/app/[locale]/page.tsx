@@ -1,9 +1,45 @@
 import { projectsData, heroData as baseHeroData, valuesData } from '@/data/global';
-
+import { generateMetadata as generateSEOMetadata, generateBreadcrumbJsonLd } from '@/lib/seo';
 import { Section } from '@/components/layout';
 import Projects from '@/features/Projects';
 import Hero from '@/features/Hero';
 import Values from '@/features/Values';
+import { Metadata } from 'next';
+import Script from 'next/script';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://designo.com';
+  const messages = (await import(`../../../messages/${locale}.json`)).default as any;
+
+  return generateSEOMetadata({
+    title:
+      messages?.Home?.Hero?.Heading ||
+      'Award-winning custom designs and digital branding solutions',
+    description:
+      messages?.Home?.Hero?.Description ||
+      'With over 10 years in the industry, we are experienced in creating fully responsive websites, app design, and engaging brand experiences.',
+    keywords: [
+      'web design',
+      'app design',
+      'graphic design',
+      'creative agency',
+      'branding',
+      'UI/UX',
+      'digital marketing',
+    ],
+    locale,
+    url: `${baseUrl}/${locale}`,
+    alternateLocales: [
+      { locale: 'en', url: `${baseUrl}/en` },
+      { locale: 'ar', url: `${baseUrl}/ar` },
+    ],
+  });
+}
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -17,13 +53,20 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   };
 
   // Translate projects data
-  const translatedProjectsData = projectsData.map(project => ({
+  const translatedProjectsData = projectsData.map((project) => ({
     ...project,
-    heading: messages?.Home?.Services?.[project.id === 'web-design' ? 'WebDesign' : project.id === 'app-design' ? 'AppDesign' : 'GraphicDesign'] ?? project.heading,
+    heading:
+      messages?.Home?.Services?.[
+        project.id === 'web-design'
+          ? 'WebDesign'
+          : project.id === 'app-design'
+            ? 'AppDesign'
+            : 'GraphicDesign'
+      ] ?? project.heading,
   }));
 
   // Translate values data
-  const translatedValuesData = valuesData.map(value => {
+  const translatedValuesData = valuesData.map((value) => {
     const valueKey = value.heading; // 'Passionate', 'Resourceful', 'Friendly'
     return {
       ...value,
@@ -32,8 +75,18 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     };
   });
 
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://designo.com';
+  const breadcrumbs = [{ name: 'Home', url: `${baseUrl}/${locale}` }];
+
   return (
     <>
+      <Script
+        id="breadcrumb-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateBreadcrumbJsonLd(breadcrumbs)),
+        }}
+      />
       <Section>
         <div className="container">
           <div
@@ -53,9 +106,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             className="col-start-2 col-span-10 xl:col-start-0 flex flex-col gap-5
             xl:col-span-12 xl:flex-row"
           >
-            <Projects 
-              data={translatedProjectsData} 
-              viewProjectText={messages?.Projects?.ViewProject ?? 'View Project'} 
+            <Projects
+              data={translatedProjectsData}
+              viewProjectText={messages?.Projects?.ViewProject ?? 'View Project'}
             />
           </div>
         </div>

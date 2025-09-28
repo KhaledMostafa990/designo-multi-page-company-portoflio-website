@@ -3,7 +3,13 @@ import Link from 'next/link';
 import type { LocationData } from '@/types/locations';
 import { PrimaryButton } from '@/components/base';
 
-export function LocationItem({ location, seeLocationText = "SEE LOCATION" }: { location: LocationData; seeLocationText?: string }) {
+export function LocationItem({
+  location,
+  seeLocationText = 'SEE LOCATION',
+}: {
+  location: LocationData;
+  seeLocationText?: string;
+}) {
   return (
     <div className="flex flex-col items-center gap-10">
       <figure className="relative rounded-full bg-gradient-to-tr from-light-grey to-white">

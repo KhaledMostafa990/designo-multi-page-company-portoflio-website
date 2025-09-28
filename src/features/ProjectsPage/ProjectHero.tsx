@@ -2,7 +2,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-export function ProjectHero({ item, projectPage, viewProjectText = "View Project" }: { item: any; projectPage?: boolean; viewProjectText?: string }) {
+export function ProjectHero({
+  item,
+  projectPage,
+  viewProjectText = 'View Project',
+}: {
+  item: any;
+  projectPage?: boolean;
+  viewProjectText?: string;
+}) {
   const link = item.id;
   const imageDesk = projectPage ? item.imageDeskSmall : item.imageDesk;
 

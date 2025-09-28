@@ -11,15 +11,15 @@ export default async function Locations({ params }: { params: Promise<{ locale: 
   const messages = (await import(`../../../../messages/${locale}.json`)).default as any;
 
   // Translate locations data
-  const translatedLocations = ourLocations.map(location => {
+  const translatedLocations = ourLocations.map((location) => {
     const locationKey = location.country; // 'Canada', 'Australia', 'United Kingdom'
     return {
       ...location,
       country: messages?.Locations?.[locationKey]?.Title ?? location.country,
-      fullAddress: (
-        (messages?.Locations?.[locationKey]?.Address1 ?? '') + ' ' +
-        (messages?.Locations?.[locationKey]?.Address2 ?? '')
-      ).trim() || location.fullAddress,
+      fullAddress:
+        `${messages?.Locations?.[locationKey]?.Address1 ?? ''} ${
+          messages?.Locations?.[locationKey]?.Address2 ?? ''
+        }`.trim() || location.fullAddress,
     };
   });
 

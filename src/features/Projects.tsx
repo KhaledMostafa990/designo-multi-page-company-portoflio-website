@@ -17,7 +17,13 @@ export interface ProjectsDataProps {
   }[];
 }
 
-export default function Projects({ data, viewProjectText }: { data: ProjectsDataProps[]; viewProjectText?: string }) {
+export default function Projects({
+  data,
+  viewProjectText,
+}: {
+  data: ProjectsDataProps[];
+  viewProjectText?: string;
+}) {
   return (
     <>
       <div className={`relative h-auto`}>
