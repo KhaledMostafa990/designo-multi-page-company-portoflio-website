@@ -1,17 +1,31 @@
-export const metadata = {
-  title: 'Contact',
-};
-
 import Image from 'next/image';
-
-import { contactData, ourLocations } from '@/data/global';
-
+import { contactData as baseContactData, ourLocations } from '@/data/global';
 import { Section } from '@/components/layout';
 import { ContactForm } from '@/components/ContactForm';
 import { LocationItem } from '@/features/locationsPage/LocationItem';
 
-export default function Contact() {
-  const { heading, description, formInputs, bgSmall } = contactData;
+export const metadata = {
+  title: 'Contact',
+};
+
+export default async function Contact({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const messages = (await import(`../../../../messages/${locale}.json`)).default as any;
+  const { bgSmall } = baseContactData;
+
+  const formInputs = {
+    name: messages?.Contact?.Form?.Name ?? baseContactData.formInputs.name,
+    email: messages?.Contact?.Form?.Email ?? baseContactData.formInputs.email,
+    phone: messages?.Contact?.Form?.Phone ?? baseContactData.formInputs.phone,
+    message: messages?.Contact?.Form?.Message ?? baseContactData.formInputs.message,
+    button: messages?.Contact?.Form?.Submit ?? baseContactData.formInputs.button,
+  } as const;
+  
+  // Translate locations data
+  const translatedLocations = ourLocations.map(location => ({
+    ...location,
+    country: messages?.Locations?.[location.country]?.Title ?? location.country,
+  }));
 
   return (
     <>
@@ -27,7 +41,11 @@ export default function Contact() {
               className="py-20 bg-primary-default relative md:rounded-b-xl overflow-hidden flex flex-col gap-16
               md:px-14 xl:flex-row xl:rounded-b-none xl:rounded-l-xl xl:gap-10"
             >
-              <ContactIntro heading={heading} description={description} bgSmall={bgSmall} />
+              <ContactIntro
+                heading={messages?.Contact?.Heading ?? baseContactData.heading}
+                description={messages?.Contact?.Description ?? baseContactData.description}
+                bgSmall={bgSmall}
+              />
 
               <ContactForm formInputs={formInputs} />
             </div>
@@ -41,8 +59,12 @@ export default function Contact() {
             className="col-start-2 col-span-10 flex flex-col gap-8
               xl:col-start-0 xl:col-span-12 xl:flex-row xl:gap-36 xl:justify-center"
           >
-            {ourLocations.map((location) => (
-              <LocationItem key={location.country} location={location} />
+            {translatedLocations.map((location) => (
+              <LocationItem 
+                key={location.country} 
+                location={location} 
+                seeLocationText={messages?.Locations?.SeeLocation ?? 'SEE LOCATION'}
+              />
             ))}
           </div>
         </div>

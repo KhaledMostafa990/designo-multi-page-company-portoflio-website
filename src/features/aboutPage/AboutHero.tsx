@@ -50,7 +50,7 @@ export function AboutHero({
 
         {/* Hero Content */}
         <div className="text-white h-full flex flex-col justify-center items-center gap-8 px-2 text-center xl:text-start xl:items-start xl:pl-20">
-          <h1 className="text-3xl md:text-5xl">{heading}</h1>
+          <h1 className="text-3xl md:text-5xl leading-tight md:leading-tight">{heading}</h1>
 
           <p className="max-w-[355px] xl:max-w-md">{description}</p>
         </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { PrimaryButton } from '@/components/base';
+import Link from 'next/link';
 
 interface HeroProps {
   data: {
@@ -48,13 +49,15 @@ export default function Hero(data: HeroProps) {
       {/* Hero Content */}
       <div
         className="text-white flex flex-col justify-center px-4 pt-14 items-center gap-8 text-center z-10
-        xl:pl-[72px] xl:pt-36 xl:text-start xl:items-start xl:justify-start"
+        xl:px-[72px] xl:pt-36 xl:text-start xl:items-start xl:justify-start"
       >
-        <h1 className="text-3xl max-w-sm md:max-w-xl md:text-5xl">{heroHeading}</h1>
+        <h1 className="text-3xl max-w-sm md:max-w-xl md:text-5xl leading-3xl">{heroHeading}</h1>
 
         <p className="max-w-md">{heroDescription}</p>
 
-        <PrimaryButton onLight={false}>{heroBtnText}</PrimaryButton>
+        <PrimaryButton onLight={false}>
+          <Link href="/about">{heroBtnText}</Link>
+        </PrimaryButton>
       </div>
     </>
   );

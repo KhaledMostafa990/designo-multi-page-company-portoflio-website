@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* Tailwind v4 theme tokens */
 @theme inline {
@@ -12,12 +12,12 @@
   --breakpoint-4xl: 1920px;
 
   /* Colors (use rgb components so /opacity variants work) */
-  --color-primary-default: rgba(231, 129, 107, 1);     /* #E7816B */
-  --color-secondary-default: rgba(255, 173, 155, 1);   /* #FFAD9B */
-  --color-light-grey: rgba(242, 242, 242, 1);          /* #F2F2F2 */
-  --color-dark-grey: rgba(51, 49, 54, 1);              /* #333136 */
-  --color-background-default: rgba(255, 255, 255, 1);  /* #FFFFFF */
-  --color-background-black: rgba(29, 28, 30, 1);       /* #1D1C1E */
+  --color-primary-default: rgba(231, 129, 107, 1); /* #E7816B */
+  --color-secondary-default: rgba(255, 173, 155, 1); /* #FFAD9B */
+  --color-light-grey: rgba(242, 242, 242, 1); /* #F2F2F2 */
+  --color-dark-grey: rgba(51, 49, 54, 1); /* #333136 */
+  --color-background-default: rgba(255, 255, 255, 1); /* #FFFFFF */
+  --color-background-black: rgba(29, 28, 30, 1); /* #1D1C1E */
 
   /* Fonts */
   --font-primary: var(--font-family-jost);
@@ -43,17 +43,17 @@
   --tracking-xl: 0.125em;
 
   --text-2xl: 28px;
-  --leading-2xl: 36px;
+  --leading-2xl: 1.15;
 
   --text-3xl: 32px;
-  --leading-3xl: 36px;
+  --leading-3xl: 1.2;
 
   --text-4xl: 40px;
-  --leading-4xl: 48px;
+  --leading-4xl: 1.25;
   --tracking-4xl: 0.125em;
 
   --text-5xl: 48px;
-  --leading-5xl: 48px;
+  --leading-5xl: 1.3;
   --tracking-5xl: 0.125em;
 }
 
@@ -65,20 +65,50 @@
     margin-inline: auto;
   }
   @media (min-width: 1280px) {
-    .container { width: 1111px; }
+    .container {
+      width: 1111px;
+    }
   }
-  .font-primary { font-family: var(--font-primary); }
+  .font-primary {
+    font-family: var(--font-primary);
+  }
 
   /* Restore legacy v3 font size extras (letter-spacing, leading, weight) */
-  .text-xs { letter-spacing: var(--tracking-xs); line-height: var(--leading-xs); }
-  .text-sm { letter-spacing: var(--tracking-sm); line-height: var(--leading-sm); }
-  .text-base { line-height: var(--leading-base); }
-  .text-lg { letter-spacing: var(--tracking-lg); line-height: var(--leading-lg); }
-  .text-xl { letter-spacing: var(--tracking-xl); line-height: var(--leading-xl); }
-  .text-2xl { line-height: var(--leading-2xl); font-weight: 500; }
-  .text-3xl { line-height: var(--leading-3xl); font-weight: 500; }
-  .text-4xl { letter-spacing: var(--tracking-4xl); line-height: var(--leading-4xl); }
-  .text-5xl { letter-spacing: var(--tracking-5xl); line-height: var(--leading-5xl); }
+  .text-xs {
+    letter-spacing: var(--tracking-xs);
+    line-height: var(--leading-xs);
+  }
+  .text-sm {
+    letter-spacing: var(--tracking-sm);
+    line-height: var(--leading-sm);
+  }
+  .text-base {
+    line-height: var(--leading-base);
+  }
+  .text-lg {
+    letter-spacing: var(--tracking-lg);
+    line-height: var(--leading-lg);
+  }
+  .text-xl {
+    letter-spacing: var(--tracking-xl);
+    line-height: var(--leading-xl);
+  }
+  .text-2xl {
+    line-height: var(--leading-2xl);
+    font-weight: 500;
+  }
+  .text-3xl {
+    line-height: var(--leading-3xl);
+    font-weight: 500;
+  }
+  .text-4xl {
+    letter-spacing: var(--tracking-4xl);
+    line-height: var(--leading-4xl);
+  }
+  .text-5xl {
+    letter-spacing: var(--tracking-5xl);
+    line-height: var(--leading-5xl);
+  }
 }
 
 .custom-hamburger-menu {
@@ -87,7 +117,7 @@
     @apply transition-transform duration-300;
     transition-timing-function: ease-in-out;
   }
-  
+
   &.active {
     justify-content: center;
     & > * {
@@ -116,7 +146,7 @@
         transform: rotate(-60deg);
       }
     }
-  }  
+  }
   &:not(.active):hover {
     > * {
       &:nth-child(1) {
@@ -126,5 +156,14 @@
         transform: rotate(-10deg);
       }
     }
+  }
+}
+
+a, button {
+  @apply transition-colors duration-300;
+  transition-timing-function: ease-in-out;
+  cursor: pointer;
+  &:hover {
+    @apply brightness-110;
   }
 }
