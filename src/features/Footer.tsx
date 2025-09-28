@@ -64,7 +64,9 @@ export default function Footer({ data, classes }: { data: FooterData; classes: s
                 <p className="max-w-md text-center xl:text-start">{orderProject.description}</p>
               </div>
               <div>
-                <PrimaryButton onLight={false}>{orderProject.buttonLabel}</PrimaryButton>
+                <PrimaryButton onLight={false}>
+                  <Link href="/contact">{orderProject.buttonLabel}</Link>
+                </PrimaryButton>
               </div>
             </div>
           </div>
@@ -85,8 +87,18 @@ export default function Footer({ data, classes }: { data: FooterData; classes: s
               />
               <ul className="flex flex-col items-center gap-8 xl:gap-12 md:flex-row">
                 {navListItems.map((item, index) => {
-                  const itemLink =
-                    item === 'Our Company' ? '/about' : `/${item.toLowerCase().replace(' ', '-')}`;
+                  // Map to correct English URLs regardless of translated text
+                  let itemLink: string;
+                  if (index === 0 || item === 'Our Company' || item === 'شركتنا') {
+                    itemLink = '/about';
+                  } else if (index === 1 || item === 'Locations' || item === 'المواقع') {
+                    itemLink = '/locations';
+                  } else if (index === 2 || item === 'Contact' || item === 'اتصل بنا') {
+                    itemLink = '/contact';
+                  } else {
+                    itemLink = `/${item.toLowerCase().replace(' ', '-')}`;
+                  }
+
                   return (
                     <li key={index}>
                       <Link
@@ -129,9 +141,6 @@ export default function Footer({ data, classes }: { data: FooterData; classes: s
                 <div className="flex flex-1 flex-col items-center justify-center text-center gap-8 max-w-[225px]">
                   <p className="text-xs leading-6 tracking-tight text-light-grey">
                     {footerCopyright}
-                    <span className="block text-primary-default md:inline">
-                      <a href="https://github.com/KhaledMostafa990/"> Khaled Farghly.</a>
-                    </span>
                   </p>
                 </div>
               </div>

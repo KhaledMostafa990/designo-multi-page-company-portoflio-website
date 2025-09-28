@@ -6,6 +6,9 @@
     "airbnb-base",
     "airbnb-typescript",
     "plugin:prettier/recommended",
+    "plugin:@next/next/recommended",
+    "next",
+    "next/core-web-vitals",
     "prettier"
   ],
   "rules": {
@@ -14,7 +17,10 @@
     "no-underscore-dangle": 0,
     "import/prefer-default-export": 0,
     "@typescript-eslint/no-use-before-define": 0,
-    "no-param-reassign": 0
+    "no-param-reassign": 0,
+    "no-console": 0,
+    "no-nested-ternary": 0,
+    "@typescript-eslint/no-shadow": 0
   },
   "env": {
     "browser": true,

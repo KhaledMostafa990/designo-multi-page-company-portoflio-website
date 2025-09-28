@@ -1,0 +1,156 @@
+{
+  "Common": {
+    "Language": "Language",
+    "English": "English",
+    "Arabic": "Arabic"
+  },
+  "Header": {
+    "Nav": {
+      "OurCompany": "Our Company",
+      "Locations": "Locations",
+      "Contact": "Contact"
+    },
+    "CTA": {
+      "SignIn": "Sign in",
+      "SignUp": "Sign up",
+      "SignOut": "Sign out",
+      "Account": "Account"
+    }
+  },
+  "Home": {
+    "Hero": {
+      "Heading": "Award-winning custom designs and digital branding solutions",
+      "Description": "With over 10 years in the industry, we are experienced in creating fully responsive websites, app design, and engaging brand experiences. Find out more about our services.",
+      "Button": "Learn More"
+    },
+    "Services": {
+      "WebDesign": "Web Design",
+      "AppDesign": "App Design",
+      "GraphicDesign": "Graphic Design",
+      "Projects": "Projects"
+    },
+    "Values": {
+      "Passionate": {
+        "Title": "Passionate",
+        "Description": "Each project starts with an in-depth brand research to ensure we only create products that serve a purpose. We merge art, design, and technology into exciting new solutions."
+      },
+      "Resourceful": {
+        "Title": "Resourceful",
+        "Description": "Everything that we do has a strategic purpose. We use an agile approach in all of our projects and value customer collaboration. It guarantees superior results."
+      },
+      "Friendly": {
+        "Title": "Friendly",
+        "Description": "We are a group of enthusiastic folks who know how to put people first. Our success depends on our customers, and we strive to give them the best experience a company can provide."
+      }
+    }
+  },
+  "TopBar": {
+    "SignIn": "Sign in",
+    "SignUp": "Sign up",
+    "SignOut": "Sign out",
+    "Account": "Account"
+  },
+  "Auth": {
+    "Email": "Email",
+    "Password": "Password",
+    "ConfirmPassword": "Confirm Password",
+    "Cancel": "Cancel",
+    "PleaseWait": "Please wait…",
+    "CreateAccount": "Create Account",
+    "SigningIn": "Signing in…",
+    "CreatingAccount": "Creating account…"
+  },
+  "Contact": {
+    "Heading": "Contact Us",
+    "Description": "Ready to take it to the next level? Let's talk about your project or idea and find out how we can help your business grow. If you are looking for unique digital experiences that's relatable to your users, drop us a line.",
+    "Form": {
+      "Name": "Name",
+      "Email": "Email Address",
+      "Phone": "Phone",
+      "Message": "Message",
+      "Submit": "Submit"
+    }
+  },
+  "About": {
+    "Hero": {
+      "Heading": "About Us",
+      "Description": "Founded in 2010, we are a creative agency that produces lasting results for our clients. We've partnered with many startups, corporations, and nonprofits alike to craft designs that make real impact. We're always looking forward to creating brands, products, and digital experiences that connect with our clients' audiences."
+    },
+    "WorldClassTalent": {
+      "Title": "World-class talent",
+      "Description": "We are a crew of strategists, problem-solvers, and technologists. Every design is thoughtfully crafted from concept to launch, ensuring success in its given market. We are constantly updating our skills in a myriad of platforms."
+    },
+    "RealDeal": {
+      "Title": "The real deal",
+      "Description": "As strategic partners in our clients' businesses, we are ready to take on any challenge as our own. Solving real problems require empathy and collaboration, and we strive to bring a fresh perspective to every opportunity."
+    }
+  },
+  "Locations": {
+    "Heading": "Our Locations",
+    "SeeLocation": "SEE LOCATION",
+    "Canada": {
+      "Title": "Canada",
+      "Address1": "3886 Wellington Street",
+      "Address2": "Toronto, Ontario M9C 3J5",
+      "Phone": "+1 253-863-8967",
+      "Email": "contact@designo.co"
+    },
+    "Australia": {
+      "Title": "Australia",
+      "Address1": "19 Balonne Street",
+      "Address2": "New South Wales 2443",
+      "Phone": "(02) 6720 9092",
+      "Email": "contact@designo.au"
+    },
+    "UK": {
+      "Title": "United Kingdom",
+      "Address1": "13 Colorado Way",
+      "Address2": "Rhyd-y-fro SA8 9GA",
+      "Phone": "078 3115 1400",
+      "Email": "contact@designo.uk"
+    }
+  },
+  "Projects": {
+    "ViewProject": "View Project",
+    "Projects": "Projects",
+    "WebDesign": {
+      "Title": "Web Design",
+      "Description": "We build websites that serve as powerful marketing tools and bring memorable brand experiences.",
+      "Express": "A multi-carrier shipping website for ecommerce businesses",
+      "Transfer": "Site for low-cost money transfers and sending money within seconds",
+      "Photon": "A state-of-the-art music player with high-resolution audio and DSP effects",
+      "Builder": "Connects users with local contractors based on their location",
+      "Blogr": "Blogr is a platform for creating an online blog or publication",
+      "Camp": "Get expert training in coding, data, design, and digital marketing"
+    },
+    "AppDesign": {
+      "Title": "App Design",
+      "Description": "Our mobile designs bring intuitive digital solutions to your customers right at their fingertips.",
+      "Airfilter": "Solving the problem of poor indoor air quality by filtering the air",
+      "Eyecam": "Product that lets you edit your favorite photos and videos at any time",
+      "Faceit": "Get to meet your favorite internet superstar with the faceit app",
+      "Todo": "A todo app that features cloud sync with light and dark mode",
+      "Loopstudios": "A VR experience app made for Loopstudios"
+    },
+    "GraphicDesign": {
+      "Title": "Graphic Design",
+      "Description": "We deliver eye-catching branding materials that are tailored to meet your business objectives.",
+      "Change": "A book cover designed for Tim Brown's new release, 'Change'",
+      "BoxedWater": "A simple packaging concept made for Boxed Water",
+      "Science": "A poster made in collaboration with the Federal Art Project"
+    }
+  },
+  "Footer": {
+    "CTA": {
+      "Heading": "Let's talk about your project",
+      "Description": "Ready to take it to the next level? Contact us today and find out how our expertise can help your business grow.",
+      "Button": "Get in touch"
+    },
+    "Address1": "Designo Central Office",
+    "Address2": "3886 Wellington Street",
+    "Address3": "Toronto, Ontario M9C 3J5",
+    "Contact": "Contact Us (Central Office)",
+    "Phone": "+1 253-863-8967",
+    "Email": "contact@designo.co"
+  }
+}

@@ -1,0 +1,22 @@
+# Progress: Day-1 / upgrade-foundations
+
+- title: Day-1 Foundations Upgrade
+- tasks:
+  - Align dependencies to Next.js 15, React 19, TS 5.7, Tailwind 4
+  - Update next/postcss/ts/eslint configs
+  - Author docs: IMPLEMENTATION_PLAN, DOCUMENTATION_MAP, ROADMAP
+  - Create branch and commit
+- criteria:
+  - Type-check and lint run locally
+  - App builds after dependency install
+  - Docs added and linked in DOCUMENTATION_MAP
+- branch: day-1/upgrade-foundations
+- status: verified-build
+- notes: Tailwind v4 theme tokens migrated to @theme in globals.scss; tailwind.config minimized. Install completed after resolving ESLint peer deps and lock reset. Type-check passed, lint fixed (broke import cycle + prettier), production build passed.
+- dependencies: kanban-latest (versions, patterns), BrightWebPath (i18n patterns)
+- complexity: medium
+- commits: TBD
+- PR: TBD
+- reviewer: @khaled
+- completed_at: null
+- notes: Next step after install: verify build, then Tailwind theme migration

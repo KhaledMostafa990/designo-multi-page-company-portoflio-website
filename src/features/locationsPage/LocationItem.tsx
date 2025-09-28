@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { LocationData } from '@/app/locations/page';
+import type { LocationData } from '@/types/locations';
 import { PrimaryButton } from '@/components/base';
 
-export function LocationItem({ location }: { location: LocationData }) {
+export function LocationItem({ location, seeLocationText = "SEE LOCATION" }: { location: LocationData; seeLocationText?: string }) {
   return (
     <div className="flex flex-col items-center gap-10">
       <figure className="relative rounded-full bg-gradient-to-tr from-light-grey to-white">
@@ -21,7 +21,7 @@ export function LocationItem({ location }: { location: LocationData }) {
         <h3 className="text-black text-lg uppercase">{location.country}</h3>
 
         <Link href={`/locations/#${location.country.toLowerCase().replace(' ', '-')}`}>
-          <PrimaryButton onLight> see Location</PrimaryButton>
+          <PrimaryButton onLight>{seeLocationText}</PrimaryButton>
         </Link>
       </div>
     </div>

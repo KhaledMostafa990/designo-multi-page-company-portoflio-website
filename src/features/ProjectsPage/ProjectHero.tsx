@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-export function ProjectHero({ item, projectPage }: { item: any; projectPage?: boolean }) {
+export function ProjectHero({ item, projectPage, viewProjectText = "View Project" }: { item: any; projectPage?: boolean; viewProjectText?: string }) {
   const link = item.id;
   const imageDesk = projectPage ? item.imageDeskSmall : item.imageDesk;
 
@@ -16,7 +16,7 @@ export function ProjectHero({ item, projectPage }: { item: any; projectPage?: bo
         <h2 className="text-2xl text-white uppercase xl:text-4xl">{item.heading}</h2>
         <Link href={`/projects/${link}`}>
           <button className="flex gap-3 justify-center items-center text-white uppercase tracking-widest text-center text-sm">
-            View Project
+            {viewProjectText}
             <i>
               <svg width="7" height="10" xmlns="http://www.w3.org/2000/svg">
                 <path

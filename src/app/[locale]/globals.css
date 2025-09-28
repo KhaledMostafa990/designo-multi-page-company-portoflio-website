@@ -1,0 +1,169 @@
+@import 'tailwindcss';
+
+/* Tailwind v4 theme tokens */
+@theme inline {
+  /* Breakpoints */
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1440px;
+  --breakpoint-3xl: 1600px;
+  --breakpoint-4xl: 1920px;
+
+  /* Colors (use rgb components so /opacity variants work) */
+  --color-primary-default: rgba(231, 129, 107, 1); /* #E7816B */
+  --color-secondary-default: rgba(255, 173, 155, 1); /* #FFAD9B */
+  --color-light-grey: rgba(242, 242, 242, 1); /* #F2F2F2 */
+  --color-dark-grey: rgba(51, 49, 54, 1); /* #333136 */
+  --color-background-default: rgba(255, 255, 255, 1); /* #FFFFFF */
+  --color-background-black: rgba(29, 28, 30, 1); /* #1D1C1E */
+
+  /* Fonts */
+  --font-primary: var(--font-family-jost);
+
+  /* Type ramp (sizes only; use leading- and tracking- utilities as needed) */
+  --text-xs: 14px;
+  --leading-xs: 14px;
+  --tracking-xs: 0.125em; /* ~2px */
+
+  --text-sm: 15px;
+  --leading-sm: 22px;
+  --tracking-sm: 0.0625em; /* ~1px */
+
+  --text-base: 16px;
+  --leading-base: 25px;
+
+  --text-lg: 20px;
+  --leading-lg: 25px;
+  --tracking-lg: 0.125em;
+
+  --text-xl: 24px;
+  --leading-xl: 25px;
+  --tracking-xl: 0.125em;
+
+  --text-2xl: 28px;
+  --leading-2xl: 1.15;
+
+  --text-3xl: 32px;
+  --leading-3xl: 1.2;
+
+  --text-4xl: 40px;
+  --leading-4xl: 1.25;
+  --tracking-4xl: 0.125em;
+
+  --text-5xl: 48px;
+  --leading-5xl: 1.3;
+  --tracking-5xl: 0.125em;
+}
+
+@layer utilities {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    max-width: 100vw;
+    margin-inline: auto;
+  }
+  @media (min-width: 1280px) {
+    .container {
+      width: 1111px;
+    }
+  }
+  .font-primary {
+    font-family: var(--font-primary);
+  }
+
+  /* Restore legacy v3 font size extras (letter-spacing, leading, weight) */
+  .text-xs {
+    letter-spacing: var(--tracking-xs);
+    line-height: var(--leading-xs);
+  }
+  .text-sm {
+    letter-spacing: var(--tracking-sm);
+    line-height: var(--leading-sm);
+  }
+  .text-base {
+    line-height: var(--leading-base);
+  }
+  .text-lg {
+    letter-spacing: var(--tracking-lg);
+    line-height: var(--leading-lg);
+  }
+  .text-xl {
+    letter-spacing: var(--tracking-xl);
+    line-height: var(--leading-xl);
+  }
+  .text-2xl {
+    line-height: var(--leading-2xl);
+    font-weight: 500;
+  }
+  .text-3xl {
+    line-height: var(--leading-3xl);
+    font-weight: 500;
+  }
+  .text-4xl {
+    letter-spacing: var(--tracking-4xl);
+    line-height: var(--leading-4xl);
+  }
+  .text-5xl {
+    letter-spacing: var(--tracking-5xl);
+    line-height: var(--leading-5xl);
+  }
+}
+
+.custom-hamburger-menu {
+  @apply relative flex-col transition-transform duration-300;
+  & > * {
+    @apply transition-transform duration-300;
+    transition-timing-function: ease-in-out;
+  }
+
+  &.active {
+    justify-content: center;
+    & > * {
+      position: absolute;
+      &:nth-child(2) {
+        opacity: 0;
+      }
+    }
+    & > * {
+      &:nth-child(1) {
+        transform: rotate(45deg);
+      }
+      &:nth-child(3) {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  &.active:hover {
+    justify-content: center;
+    & > * {
+      &:nth-child(1) {
+        transform: rotate(60deg);
+      }
+      &:nth-child(3) {
+        transform: rotate(-60deg);
+      }
+    }
+  }
+  &:not(.active):hover {
+    > * {
+      &:nth-child(1) {
+        transform: rotate(10deg);
+      }
+      &:nth-child(3) {
+        transform: rotate(-10deg);
+      }
+    }
+  }
+}
+
+a, button {
+  @apply transition-colors duration-300;
+  transition-timing-function: ease-in-out;
+  cursor: pointer;
+  &:hover {
+    @apply brightness-110;
+  }
+}

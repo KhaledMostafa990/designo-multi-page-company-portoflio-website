@@ -132,7 +132,7 @@ export const footerData = {
       link: 'https://www.youtube.com/',
     },
   ],
-  footerCopyright: '© Easybank Template 2023. All Rights Reserved Developed by',
+  footerCopyright: `© Designo 2023 - ${new Date().getFullYear()}. All rights reserved.`,
 };
 
 // Projects Mock data example
