@@ -1,0 +1,39 @@
+# Progress: Day-3 / header-scroll-animation
+
+- title: Day-3 Header Scroll Animation Implementation
+- tasks:
+  - Create custom hook `useScrollDirection` for scroll detection
+  - Update TopBar component with conditional visibility and smooth transitions
+  - Adjust Header component positioning logic for topbar hide/show
+  - Add CSS transitions and transform animations with proper easing
+  - Implement throttled scroll listeners for performance optimization
+  - Handle edge cases (page top, rapid scrolling, mobile responsiveness)
+  - Add minimum scroll threshold before triggering animations
+  - Ensure RTL support and maintain auth/language switcher accessibility
+  - Test scroll behavior across all pages and viewports
+  - Add proper cleanup for scroll event listeners
+- criteria:
+  - Smooth header animations on scroll with no jank
+  - Professional UX with 300-400ms transition timing
+  - TopBar hides on scroll down, shows on scroll up
+  - Main Header adjusts positioning accordingly
+  - No performance impact with throttled scroll detection
+  - Full functionality maintained in both languages
+  - Mobile and desktop responsiveness verified
+  - Type-check and lint compliance
+  - Build succeeds
+- branch: day-3/header-scroll-animation  
+- status: in-progress
+- dependencies: Existing TopBar and Header components, React hooks patterns
+- complexity: medium-high
+- commits:
+  - feat(header): add scroll-aware StickyHeaderController and useScrollDirection; integrate into layout (3eead17)
+  - fix(header): resolve Windows case-insensitive path conflict by renaming folder to sticky-header and update imports (0e724ca)
+  - chore(security,docs): add env backend example and security docs; chore(tsconfig): target ES2022 and simplify includes (e6cf314)
+  - build(next): remove next.config.js to ensure next.config.ts is authoritative (12dc72f)
+  - test: add jest config and initial useScrollDirection tests; ci: add GitHub Actions workflow (5cb7220)
+  - docs(readme): update stack versions and env guidance with placeholders (3de592e)
+- PR: TBD
+- reviewer: @khaled
+- completed_at: null
+- notes: Implementing modern scroll-based header behavior for enhanced UX
