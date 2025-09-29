@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
+    "test": "jest",
     "prisma:generate": "prisma generate"
   },
   "dependencies": {
@@ -45,6 +46,13 @@
     "postcss": "^8.5.2",
     "prisma": "^6.16.1",
     "sass": "^1.80.3",
-    "tailwindcss": "^4.1.13"
+    "tailwindcss": "^4.1.13",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.0.1",
+    "@types/jest": "^29.5.12",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "next/jest": "^15.5.4",
+    "ts-jest": "^29.2.5"
   }
 }
