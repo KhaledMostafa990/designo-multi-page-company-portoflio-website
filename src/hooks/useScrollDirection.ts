@@ -21,8 +21,9 @@ export interface UseScrollDirectionResult {
  * - Uses passive listeners and cleans up on unmount.
  */
 export function useScrollDirection(
-  { threshold = 12, throttleMs = 80 }: UseScrollDirectionOptions = {},
+  options: UseScrollDirectionOptions = {},
 ): UseScrollDirectionResult {
+  const { threshold = 12, throttleMs = 80 } = options;
   const [direction, setDirection] = useState<ScrollDirection>('up');
   const [isAtTop, setIsAtTop] = useState<boolean>(true);
   const lastYRef = useRef<number>(0);
@@ -68,5 +69,9 @@ export function useScrollDirection(
     };
   }, [threshold, throttleMs, direction]);
 
-  return { direction, isAtTop, lastY: lastYRef.current };
+  return {
+    direction,
+    isAtTop,
+    lastY: lastYRef.current,
+  };
 }

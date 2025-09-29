@@ -24,7 +24,7 @@ export default function StickyHeaderController({
   // Measure TopBar height and expose as CSS variable
   useEffect(() => {
     const el = topBarRef.current;
-    if (!el) return;
+    if (!el) return undefined;
 
     const updateVar = () => {
       const h = el.getBoundingClientRect().height;
@@ -40,7 +40,11 @@ export default function StickyHeaderController({
     window.addEventListener('resize', updateVar);
 
     return () => {
-      try { ro.disconnect(); } catch {}
+      try {
+        ro.disconnect();
+      } catch (e) {
+        // noop
+      }
       window.removeEventListener('resize', updateVar);
     };
   }, []);
@@ -51,10 +55,16 @@ export default function StickyHeaderController({
 
   return (
     <div className="sticky top-0 z-30">
-      <div ref={topBarRef} className={`${transition} ${hideTopBar ? translateHidden : translateShown}`}>
+      <div
+        ref={topBarRef}
+        className={`${transition} ${hideTopBar ? translateHidden : translateShown}`}
+      >
         {topBar}
       </div>
-      <div ref={headerRef} className={`${transition} ${hideTopBar ? translateHidden : translateShown}`}>
+      <div
+        ref={headerRef}
+        className={`${transition} ${hideTopBar ? translateHidden : translateShown}`}
+      >
         {header}
       </div>
     </div>
