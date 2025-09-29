@@ -16,7 +16,7 @@ describe('useScrollDirection', () => {
   test('scrolling down beyond threshold sets direction to down', () => {
     jest.useFakeTimers();
     const { result } = renderHook(() => useScrollDirection({ threshold: 12, throttleMs: 0 }));
-    act(() => setScrollY(20));
+    act(() => setScrollY(30)); // 30 > 2 * threshold (24), so not "at top" anymore
     jest.advanceTimersByTime(0);
     expect(result.current.direction).toBe('down');
     jest.useRealTimers();
