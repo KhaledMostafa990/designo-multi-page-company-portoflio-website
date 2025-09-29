@@ -77,7 +77,16 @@ export default function Header({
             <Logo logoSrc={logoSrc} />
           </Link>
 
-          <NavBar navRef={navRef} navListRef={navList} navListItems={navListItems} />
+          <NavBar 
+            navRef={navRef} 
+            navListRef={navList} 
+            navListItems={navListItems}
+            onLinkClick={() => {
+              if (!isDesktop && navRef?.current?.classList.contains('active')) {
+                toggleMenu();
+              }
+            }}
+          />
 
           {/* Auth buttons removed - now handled by TopBar */}
 
