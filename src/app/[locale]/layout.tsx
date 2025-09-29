@@ -121,7 +121,6 @@ export default async function RootLayout({
               {/* Sticky controller manages scroll-hide/show transforms for TopBar and Header */}
               <StickyHeaderController
                 topBar={
-                  {/* eslint-disable prettier/prettier */}
                   <TopBar
                     labels={{
                       signIn:
@@ -149,7 +148,6 @@ export default async function RootLayout({
                       creatingAccount: messages?.Auth?.CreatingAccount ?? 'Creating account…',
                     }}
                   />
-                  {/* eslint-enable prettier/prettier */}
                 }
                 header={
                   <Header
