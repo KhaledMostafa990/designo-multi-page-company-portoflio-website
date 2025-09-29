@@ -6,6 +6,7 @@ import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import Header from '@/features/Header';
+import { StickyHeaderController } from '@/features/header';
 import Footer from '@/features/Footer';
 import Alert from '@/components/base/Alert';
 import { AlertProvider } from '@/data/AlertContext';
@@ -117,33 +118,40 @@ export default async function RootLayout({
         <AuthProvider>
           <AlertProvider>
             <div className={`${jostFont.variable} font-primary`}>
-              <TopBar
-                labels={{
-                  signIn: messages?.TopBar?.SignIn ?? messages?.Header?.CTA?.SignIn ?? 'Sign in',
-                  signUp: messages?.TopBar?.SignUp ?? messages?.Header?.CTA?.SignUp ?? 'Sign up',
-                  signOut:
-                    messages?.TopBar?.SignOut ?? messages?.Header?.CTA?.SignOut ?? 'Sign out',
-                  account: messages?.TopBar?.Account ?? messages?.Header?.CTA?.Account ?? 'Account',
-                }}
-                authLabels={{
-                  email: messages?.Auth?.Email ?? 'Email',
-                  password: messages?.Auth?.Password ?? 'Password',
-                  confirmPassword: messages?.Auth?.ConfirmPassword ?? 'Confirm Password',
-                  cancel: messages?.Auth?.Cancel ?? 'Cancel',
-                  waiting: messages?.Auth?.PleaseWait ?? 'Please wait…',
-                  signingIn: messages?.Auth?.SigningIn ?? 'Signing in…',
-                  creatingAccount: messages?.Auth?.CreatingAccount ?? 'Creating account…',
-                }}
-              />
-              <Header
-                data={{
-                  navListItems: [
-                    { label: messages?.Header?.Nav?.OurCompany ?? 'Our Company', href: '/about' },
-                    { label: messages?.Header?.Nav?.Locations ?? 'Locations', href: '/locations' },
-                    { label: messages?.Header?.Nav?.Contact ?? 'Contact', href: '/contact' },
-                  ],
-                  logoSrc,
-                }}
+              {/* Sticky controller manages scroll-hide/show transforms for TopBar and Header */}
+              <StickyHeaderController
+                topBar={(
+                  <TopBar
+                    labels={{
+                      signIn: messages?.TopBar?.SignIn ?? messages?.Header?.CTA?.SignIn ?? 'Sign in',
+                      signUp: messages?.TopBar?.SignUp ?? messages?.Header?.CTA?.SignUp ?? 'Sign up',
+                      signOut:
+                        messages?.TopBar?.SignOut ?? messages?.Header?.CTA?.SignOut ?? 'Sign out',
+                      account: messages?.TopBar?.Account ?? messages?.Header?.CTA?.Account ?? 'Account',
+                    }}
+                    authLabels={{
+                      email: messages?.Auth?.Email ?? 'Email',
+                      password: messages?.Auth?.Password ?? 'Password',
+                      confirmPassword: messages?.Auth?.ConfirmPassword ?? 'Confirm Password',
+                      cancel: messages?.Auth?.Cancel ?? 'Cancel',
+                      waiting: messages?.Auth?.PleaseWait ?? 'Please wait…',
+                      signingIn: messages?.Auth?.SigningIn ?? 'Signing in…',
+                      creatingAccount: messages?.Auth?.CreatingAccount ?? 'Creating account…',
+                    }}
+                  />
+                )}
+                header={(
+                  <Header
+                    data={{
+                      navListItems: [
+                        { label: messages?.Header?.Nav?.OurCompany ?? 'Our Company', href: '/about' },
+                        { label: messages?.Header?.Nav?.Locations ?? 'Locations', href: '/locations' },
+                        { label: messages?.Header?.Nav?.Contact ?? 'Contact', href: '/contact' },
+                      ],
+                      logoSrc,
+                    }}
+                  />
+                )}
               />
 
               <main className="relative overflow-hidden translate-y-24 xl:translate-y-32 pb-10 flex flex-col gap-20 ">
