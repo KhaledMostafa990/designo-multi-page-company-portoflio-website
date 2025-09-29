@@ -81,32 +81,34 @@ For Mac
 touch .env.local
 ```
 
-For Win
+For Windows
 
 ```
 echo > .env.local
 ```
 
-To set up your email environment variables, you'll need to gather the necessary information for the following variables:
+To set up your email environment variables, use placeholders and do not commit secrets:
 
 ```
-SMTP_HOST= SMTP server hostname: smtp.gmail.com for Gmail.
-SMTP_PORT= The SMTP server port number. For example, 587 for Gmail.
-SMTP_USERNAME= Your email account username.
-SMTP_PASSWORD= Your email account password.
-SMTP_FROM_ADDRESS= The email address you want to use as the sender.
-SMTP_TO_ADDRESS= The email address you want to use as the recipient.
+SMTP_HOST=
+SMTP_PORT=
+SMTP_USERNAME=
+SMTP_PASSWORD={{SMTP_PASSWORD}}
+SMTP_FROM_ADDRESS=
+SMTP_TO_ADDRESS=
 ```
+
+See docs/examples/.env.frontend.example and docs/examples/.env.backend.example.
 
 ## Built with
 
 - Semantic HTML5 markup
 - CSS
-- Js
+- TypeScript 5
 - Mobile-first workflow
-- React - JS library
-- Next.js 13 - React framework
-- TawilindCss - CSS Library for styles
+- React 19 - JS library
+- Next.js 15 - React framework
+- Tailwind CSS 4 - CSS framework for styles
 - Formik.js, libphonenumber-js and Yup - for contact form
 - nodemailer.js - for send contact form information
 
