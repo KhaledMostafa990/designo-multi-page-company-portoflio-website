@@ -123,20 +123,14 @@ export default async function RootLayout({
                 topBar={
                   <TopBar
                     labels={{
-                      signIn:
-                        messages?.TopBar?.SignIn ??
-                        messages?.Header?.CTA?.SignIn ??
-                        'Sign in',
-                      signUp:
-                        messages?.TopBar?.SignUp ??
-                        messages?.Header?.CTA?.SignUp ??
-                        'Sign up',
+                      // eslint-disable-next-line prettier/prettier
+                      signIn: messages?.TopBar?.SignIn ?? messages?.Header?.CTA?.SignIn ?? 'Sign in',
+                      // eslint-disable-next-line prettier/prettier
+                      signUp: messages?.TopBar?.SignUp ?? messages?.Header?.CTA?.SignUp ?? 'Sign up',
                       signOut:
                         messages?.TopBar?.SignOut ?? messages?.Header?.CTA?.SignOut ?? 'Sign out',
-                      account:
-                        messages?.TopBar?.Account ??
-                        messages?.Header?.CTA?.Account ??
-                        'Account',
+                      // eslint-disable-next-line prettier/prettier
+                      account: messages?.TopBar?.Account ?? messages?.Header?.CTA?.Account ?? 'Account',
                     }}
                     authLabels={{
                       email: messages?.Auth?.Email ?? 'Email',
